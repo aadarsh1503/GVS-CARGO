@@ -14,7 +14,7 @@ function CollapsibleSection({ title, description }) {
     <div className='bg-Graytext  '>
     <div className=" font-roboto lg:max-w-7xl   bg-white  lg:mx-auto ">
       <div
-        className="flex  bg-yellow-400 lg:px-4  outline-white border outline-1 lg:w-[1280px] lg:py-2 cursor-pointer"
+        className="flex  bg-YellowLight lg:px-4  outline-white border outline-1 lg:w-[1280px] lg:py-2 cursor-pointer"
         onClick={toggleSection}
       >
         <div className="text-2xl  lg:mr-3">

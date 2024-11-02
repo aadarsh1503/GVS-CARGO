@@ -5,6 +5,7 @@ import ColorBar from '../Colorbar/Colorbar';
 
 const OperateWorld = () => {
   return (
+    <div>
     <section className="flex flex-col  lg:max-w-8xl mx-auto items-center px-4 md:px-8 lg:px-16 bg-white">
   <h1 className='text-3xl font-poppins text-center mt-6 lg:mt-40 mb-6 lg:mb-32 font-bold'>Where we operate in World:</h1>
   <p className='text-gray-500 lg:mb-32 font-poppins text-center'>
@@ -12,11 +13,11 @@ const OperateWorld = () => {
   </p>
   <img src="https://brfreight.com/wp-content/uploads/2018/06/estrutura-no-mundo-768x534.png" alt="Descriptive Alt Text" className="mx-auto mb-6" />
   <Bounce />
-  <div className='lg:max-w-7xl lg:w-full w-96 mb-10'>
-    <Slide />
-  </div>
-  <ColorBar />
+  <div className='-ml-10 w-56'><Slide /></div>
+ 
 </section>
+ <ColorBar />
+ </div>
 
   );
 };

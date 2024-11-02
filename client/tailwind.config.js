@@ -22,7 +22,10 @@ export default {
         Graytext: '#7A7A7A',
         DarkYellow : '#FFBE0D',
         DarkOrange:'#F59608',
-        GrayFoot:'#565656'
+        GrayFoot:'#565656',
+        YellowPoint :'#FEDF51',
+        GrayBar:'#8B7F7E',
+        YellowLight:'#F5DC4A'
       },
       backgroundImage: {
         'stripes': "linear-gradient(45deg, #ccac00 25%, transparent 25%, transparent 50%, #ccac00 50%, #ccac00 75%, transparent 75%, transparent)",

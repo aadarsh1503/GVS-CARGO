@@ -29,7 +29,7 @@ const Cards = () => {
   return (
     <div className="grid grid-cols-1 mb-10 font-poppins mt-10 md:grid-cols-3 gap-6 w-full mx-auto max-w-5xl">
       {cards.map((card) => (
-        <div key={card.id} className="flex flex-col items-center rounded-md overflow-hidden">
+        <div key={card.id} className="flex flex-col p-3 lg:p-0 items-center rounded-md overflow-hidden">
           <div className="overflow-hidden transition-transform duration-300 hover:scale-110">
             <img src={card.src} alt={card.title} className="w-full h-56 object-cover" />
           </div>

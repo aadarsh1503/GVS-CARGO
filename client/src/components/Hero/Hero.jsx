@@ -1,5 +1,4 @@
 import React from 'react'
-import Slide from '../Slide/Slide'
 import Cards from '../Cards/Cards'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
@@ -65,7 +64,7 @@ on all continents.
           </div>
         </div>
       </section>
-      <Slide />
+      
       <Cards />
      
 
