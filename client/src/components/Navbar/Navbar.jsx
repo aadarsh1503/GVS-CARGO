@@ -71,21 +71,35 @@ const Navbar = () => {
       {/* Navigation Menu */}
       <nav className="bg-YellowDark font-roboto py-7">
       <div className="container max-w-6xl mx-auto flex items-center justify-between">
-  {/* Desktop Navigation */}
-  <ul className="hidden sm:flex space-x-6 bg-GrayDark py-2 px-14 rounded-full">
-    {['Start', 'A BR Freight Shipping', 'Freights', 'Services', 'Ferramentas'].map((item) => (
-      <li className="relative group font-bold" key={item}>
-        <a href='/'>
-        <button
-          className={`text-white py-3 lg:ml-0  flex items-center ${
-            selectedItem === item ? 'border-b-4 px-4 border-YellowDark' : ''
-          } hover:border-b-4 hover:border-YellowDark`}
-          onClick={() => setSelectedItem(item)}
-        >
-          {item}
-          {item !== 'Start' && <FaChevronDown className="ml-2" />}
-        </button>
-        </a>
+        {/* Desktop Navigation */}
+        <ul className="hidden sm:flex space-x-6 bg-GrayDark py-2 px-14 rounded-full">
+          {['Start', 'A BR Freight Shipping', 'Freights', 'Services', 'Ferramentas'].map((item) => (
+            <li className="relative group font-bold" key={item}>
+              {item === 'Start' ? (
+                // Link only for 'Start' item
+                <a href="/">
+                  <button
+                    className={`text-white py-3 lg:ml-0 flex items-center ${
+                      selectedItem === item ? 'border-b-4 px-4 border-YellowDark' : ''
+                    } hover:border-b-4 hover:border-YellowDark`}
+                    onClick={() => setSelectedItem(item)}
+                  >
+                    {item}
+                  </button>
+                </a>
+              ) : (
+                // No link for other items
+                <button
+                  className={`text-white py-3 lg:ml-0 flex items-center ${
+                    selectedItem === item ? 'border-b-4 px-4 border-YellowDark' : ''
+                  } hover:border-b-4 hover:border-YellowDark`}
+                  onClick={() => setSelectedItem(item)}
+                >
+                  {item}
+                  <FaChevronDown className="ml-2" />
+                </button>
+              )}
+
         {/* Dropdown Options based on each item */}
         {item === 'A BR Freight Shipping' && (
           <div className="absolute hidden group-hover:flex flex-col z-10 bg-GrayDark  text-white  lg:w-[256px] -ml-2   rounded">
