@@ -164,12 +164,12 @@ const Navbar = () => {
 
   {/* Dropdown Menu (Conditional) */}
   <div
-    className={`mt-2 w-64 bg-gray-700 rounded-lg shadow-lg z-10 absolute top-full transition-all duration-300 ease-in-out ${
+    className={` w-64 bg-gray-700 rounded-lg shadow-lg z-10 absolute top-full transition-all duration-300 ease-in-out ${
       isOpen ? 'opacity-100 max-h-screen' : 'opacity-0 max-h-0 overflow-hidden'
     }`}
   >
 <div
-  className={`mt-2 w-64 bg-gray-700 rounded-lg shadow-lg z-10 absolute top-full transition-all duration-300 ease-in-out ${
+  className={`-mt-16 w-64 bg-gray-700 rounded-lg shadow-lg z-10 absolute top-full transition-all duration-300 ease-in-out ${
     isOpen ? 'opacity-100 max-h-screen' : 'opacity-0 max-h-0 overflow-hidden'
   }`}
 >
@@ -204,7 +204,7 @@ const Navbar = () => {
   </button>
 )}
 
-
+<div className=''>
         {/* Dropdown menu for various sections */}
         {item === 'Services' && openDropdown === index && (
           <div className="flex flex-col bg-gray-700 text-left text-xs font-roboto items-start text-white  lg:w-[1200px] rounded mt-2">
@@ -245,7 +245,7 @@ const Navbar = () => {
   </div>
 )}
 
-        
+</div>
       </li>
     ))}
   </ul>
@@ -253,9 +253,11 @@ const Navbar = () => {
 
 
   </div>
+  <a href='/contactUs'>
   <button className="mt-4 bg-gray-900 text-white py-2 w-64 rounded-lg shadow-lg focus:outline-none">
     Request a quote
   </button>
+  </a>
 </div>
 
 

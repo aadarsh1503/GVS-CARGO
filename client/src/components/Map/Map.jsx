@@ -2,8 +2,8 @@ import React from 'react';
 
 function LocationSection() {
   return (
-    <div className="flex justify-start items-start p-4">
-      <div className="w-full max-w-md">
+    <div className="flex lg:justify-start  lg:items-start p-4">
+      <div className="w-full lg:ml-0 ml-32 max-w-md">
         <h2 className="text-2xl font-semibold mb-4">Location:</h2>
         <p className="text-sm mb-2">Phone: (11) 3649-2424 Whatsapp: (11) 99317-3985</p>
         {/* Embed Google Map with iframe */}

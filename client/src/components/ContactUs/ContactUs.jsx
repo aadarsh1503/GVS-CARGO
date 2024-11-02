@@ -101,7 +101,7 @@ const ContactUs = () => {
           </button>
         </div>
       </form>
-      <div className='-ml-48'>
+      <div className='lg:-ml-48 -ml-32'>
       <LocationSection />
       </div>
       
