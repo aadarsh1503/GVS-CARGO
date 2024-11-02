@@ -1,4 +1,5 @@
 import React from 'react';
+import cent from "./cent.png"
 
 const IncotermsSection = () => {
   return (
@@ -19,7 +20,7 @@ const IncotermsSection = () => {
       {/* Image */}
       <div className="w-full flex justify-center">
         <img
-          src="https://brfreight.com/wp-content/uploads/2018/07/Inconterms-BR-Freight-Shipping-768x521.png"
+          src={cent}
           alt="Incoterms Chart"
           className=" mb-10 lg:w-[600px] rounded"
            // Adjust size as needed

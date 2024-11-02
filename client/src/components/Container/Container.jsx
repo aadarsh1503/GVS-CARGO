@@ -2,6 +2,9 @@ import React from 'react';
 import Slide from '../Slide/Slide';
 import BounceOne from '../BounceOne/BounceOne';
 import { useState } from 'react';
+import first from "./first.png"
+import sec from "./sec.png"
+import third from "./third.png"
 
 function Containers() {
     const [selected, setSelected] = useState('DRY BOX');
@@ -28,9 +31,9 @@ function Containers() {
 
             {/* Container to show photos when "DRY BOX" is clicked */}
             <div id="dry-box-photos" className="hidden mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <img src="https://brfreight.com/wp-content/uploads/2023/03/DryBox20.png" alt="Dry Box Photo 1" className="w-full h-auto object-cover rounded-lg shadow" />
-                <img src="https://brfreight.com/wp-content/uploads/2023/03/DryBox40.png" alt="Dry Box Photo 2" className="w-full h-auto object-cover rounded-lg shadow" />
-                <img src="https://brfreight.com/wp-content/uploads/2023/03/Drybox-Cube.png" alt="Dry Box Photo 3" className="w-full h-auto object-cover rounded-lg shadow" />
+                <img src={first} alt="Dry Box Photo 1" className="w-full h-auto object-cover rounded-lg shadow" />
+                <img src={sec} alt="Dry Box Photo 2" className="w-full h-auto object-cover rounded-lg shadow" />
+                <img src={third} alt="Dry Box Photo 3" className="w-full h-auto object-cover rounded-lg shadow" />
             </div>
 
             <BounceOne />

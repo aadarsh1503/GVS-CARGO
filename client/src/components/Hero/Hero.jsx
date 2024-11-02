@@ -4,6 +4,8 @@ import Cards from '../Cards/Cards'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
 import { FaMapMarkedAlt,FaGlobeAfrica } from 'react-icons/fa';
+import i8 from "./i8.jpg"
+import i13 from "./i13.png"
 
 
 import OurServices from '../OurServices/OurServices';
@@ -21,7 +23,7 @@ const Hero = () => {
       <div
             className='text-white font-roboto lg:text-6xl text-5xl  py-32  lg:py-72 text-center min-h-screen font-bold bg-black'
             style={{
-                backgroundImage: 'url("https://brfreight.com/wp-content/uploads/2022/06/banner-logisticas-.jpg")', // Replace with your image URL
+                 backgroundImage: `url(${i8})`, // Replace with your image URL
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}
@@ -55,7 +57,7 @@ on all continents.
 
         <div className="mt-8 md:mt-0 md:w-1/2 flex justify-center">
           <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden">
-            <img src="https://brfreight.com/wp-content/uploads/2022/06/imgSobre.png" alt="Shipping Illustration" className="w-full h-full object-cover" />
+            <img src={i13} alt="Shipping Illustration" className="w-full h-full object-cover" />
             <div
               className="absolute inset-0  rounded-full"
               style={{ clipPath: 'circle(50% at 50% 50%)' }}

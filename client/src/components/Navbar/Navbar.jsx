@@ -4,6 +4,7 @@ import { MdLocationOn } from 'react-icons/md';
 import { useState } from 'react';
 import { FaChevronDown, FaTimes ,FaBars  } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import i10 from "./i10.png"
 
 
 const Navbar = () => {
@@ -45,7 +46,7 @@ const Navbar = () => {
   <div className="container mx-auto max-w-5xl flex flex-col lg:flex-row justify-between items-center">
     {/* Logo */}
     <div className="mb-6 lg:mb-0">
-      <img src="https://brfreight.com/wp-content/uploads/2018/05/cropped-brand.png" alt="BR Freight Shipping" className="h-20" />
+      <img src={i10} alt="BR Freight Shipping" className="h-20" />
     </div>
 
     {/* Contact Info */}
@@ -87,7 +88,7 @@ const Navbar = () => {
         </a>
         {/* Dropdown Options based on each item */}
         {item === 'A BR Freight Shipping' && (
-          <div className="absolute hidden group-hover:flex flex-col bg-GrayDark  text-white  lg:w-[256px] -ml-2   rounded">
+          <div className="absolute hidden group-hover:flex flex-col z-10 bg-GrayDark  text-white  lg:w-[256px] -ml-2   rounded">
            <a href="/whoWeAre" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6 text-left">Who We Are</a>
 <a href="/whereinBrazil" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6">Where We Operate in Brazil</a>
 <a href="/operateWorld" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6">Where We Operate in the World</a>
@@ -96,7 +97,7 @@ const Navbar = () => {
           </div>
         )}
         {item === 'Freights' && (
-          <div className="absolute hidden group-hover:flex flex-col bg-GrayDark text-white  shadow-lg p-2  lg:w-[150px] -ml-2 rounded">
+          <div className="absolute hidden group-hover:flex flex-col z-10 bg-GrayDark text-white  shadow-lg p-2  lg:w-[150px] -ml-2 rounded">
             <a href="/airFreight" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins">Air Freight</a>
             <a href="/seaFreight" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins">Sea Freight</a>
             <a href="/roadFreight" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins">Road Freight</a>
@@ -117,7 +118,7 @@ const Navbar = () => {
           </div>
         )}
         {item === 'Ferramentas' && (
-          <div className="absolute hidden group-hover:flex flex-col bg-GrayDark text-white shadow-lg rounded">
+          <div className="absolute hidden group-hover:flex flex-col z-10 bg-GrayDark text-white shadow-lg rounded">
           <a href="/incoterms" className="py-4 hover:bg-YellowDark px-4 text-sm">INCOTERMS </a>
             <a href="/container" className="py-4 hover:bg-YellowDark px-4 text-sm">Container</a>
           </div>

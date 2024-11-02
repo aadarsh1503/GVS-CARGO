@@ -1,5 +1,7 @@
 import React from 'react';
 import { FaLinkedin, FaInstagram } from 'react-icons/fa';
+import i10 from "./i10.png"
+import i12 from "./i12.png"
 
 const Footer = () => {
   return (
@@ -9,7 +11,7 @@ const Footer = () => {
         {/* Left Section: Logo and Social Icons */}
         <div className="flex flex-col items-center lg:items-start mb-8 lg:mb-0">
           {/* BR Freight Shipping Logo */}
-          <img src="https://brfreight.com/wp-content/uploads/2018/05/cropped-brand.png" alt="BR Freight Shipping" className="h-20 mb-4" />
+          <img src={i10} alt="BR Freight Shipping" className="h-20 mb-4" />
 
           {/* Social Icons */}
           <div className="flex space-x-4">
@@ -45,7 +47,7 @@ const Footer = () => {
           {/* Developer Credit */}
           <div className="flex flex-col items-center">
             <p className="text-sm mb-2 text-center">Developed and monitored by:</p>
-            <img src="https://brfreight.com/wp-content/uploads/2022/07/LOGO-ALUMIAR-PNG-BRANCO-768x221.png" alt="Alumiar Logo" className="h-36 w-full lg:w-auto" />
+            <img src={i12} alt="Alumiar Logo" className="h-36 w-full lg:w-auto" />
           </div>
         </div>
       </div>

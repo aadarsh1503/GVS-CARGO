@@ -3,19 +3,17 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import "./Slide.css";
+import item2 from "./item2.png";
+import i3 from "./i3.jpg";
+import i4 from "./i4.png";
+import i5 from "./i5.png";
+import i6 from "./i6.png";
 
 const Slide = () => {
-    const images = [
-        "https://brfreight.com/wp-content/uploads/2018/05/item2-1.png",
-        "https://brfreight.com/wp-content/uploads/2018/06/JCtrans-net-parceiro-BR-Freight-Shipping-1.jpg",
-        "https://brfreight.com/wp-content/uploads/2018/05/item1-1.png",
-        "https://brfreight.com/wp-content/uploads/2018/05/item4-1.png",
-        "https://brfreight.com/wp-content/uploads/2018/05/item3-1.png",
-        
-    ];
+    const images = [item2, i3, i4, i5, i6];
 
     const [isLoaded, setIsLoaded] = useState(false);
-    const sliderRef = useRef(null); // Reference for the slider
+    const sliderRef = useRef(null);
 
     const preloadImages = (images) => {
         let loadedImages = 0;
@@ -38,7 +36,7 @@ const Slide = () => {
     }, [images]);
 
     const settings = {
-        dots: true, // Enable dots for navigation
+        dots: true,
         infinite: true,
         speed: 1000,
         slidesToShow: 5,
@@ -81,9 +79,6 @@ const Slide = () => {
     };
 
     return (
-      <>
-     
-
         <section className="py-10 max-w-7xl mx-auto">
             <div className="mx-auto px-1">
                 {isLoaded ? (
@@ -94,7 +89,7 @@ const Slide = () => {
                                     src={src}
                                     alt={`Slide ${index + 1}`}
                                     className="object-contain w-3/4 mx-auto"
-                                    style={{ maxHeight: '200px' }} 
+                                    style={{ maxHeight: '200px' }}
                                 />
                             </div>
                         ))}
@@ -105,10 +100,7 @@ const Slide = () => {
                     </div>
                 )}
             </div>
-            
         </section>
-        </>
-        
     );
 };
 

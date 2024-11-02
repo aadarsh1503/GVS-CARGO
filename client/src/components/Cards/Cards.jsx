@@ -1,4 +1,7 @@
 import React from 'react';
+import aero from "./aero.jpg"
+import Truck from "./Truck.png"
+import boat from "./boat.jpg"
 
 const Cards = () => {
   const cards = [
@@ -6,21 +9,22 @@ const Cards = () => {
       id: 1,
       title: 'Air',
       description: 'With safety, speed and transparency, BR Freight Shipping collects, accommodates, ships, tracks and delivers anywhere in the world.',
-      src: 'https://brfreight.com/wp-content/uploads/2022/06/20220201_li35bhh1-1024x410.jpg',
+      src: aero, // No braces here
     },
     {
       id: 2,
       title: 'Road',
       description: 'BR Freight Shipping is widely consolidated to offer you its entire infrastructure in road freight transport services.',
-      src: 'https://brfreight.com/wp-content/uploads/2022/06/transporte-rodoviario-de-cargas-1024x640.png',
+      src: Truck, // No braces here
     },
     {
       id: 3,
       title: 'Maritime',
       description: 'We offer the best conditions for chartering ships for special cargo and/or IMO (Cargo of dangerous goods).',
-      src: 'https://brfreight.com/wp-content/uploads/2022/06/ship_night-5d228ea19ef072330cf77c5c6c14eff4857a37d4b157451f4be589b01ea77fda-1024x576.jpg',
+      src: boat, // No braces here
     },
   ];
+  
 
   return (
     <div className="grid grid-cols-1 mb-10 font-poppins mt-10 md:grid-cols-3 gap-6 w-full mx-auto max-w-5xl">

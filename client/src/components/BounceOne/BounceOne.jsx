@@ -1,15 +1,23 @@
 import React from 'react';
+import one from "./one.png"
+import two from "./two.png"
+import three from "./three.png"
+import four from "./four.png"
+import five from "./five.png"
+import six from "./six.png"
+import seven from "./seven.png"
+import eight from "./eight.png"
 
 const BounceOne = () => {
   const projects = [
-    { title: 'PICKUP AND DELIVERY', src: 'https://brfreight.com/wp-content/uploads/2022/07/frente-do-caminhao-de-entrega.png' },
-    { title: 'STUFFING & CONTAINER', src: 'https://brfreight.com/wp-content/uploads/2022/07/empilhadeira.png' },
-    { title: 'SWAPNING & CONTAINER', src: 'https://brfreight.com/wp-content/uploads/2022/07/caminhao-de-entrega.png' },
-    { title: 'BOARDING COMP.', src: 'https://brfreight.com/wp-content/uploads/2022/07/container.png' },
-    { title: 'PERISHABLE PRODUCTS', src: 'https://brfreight.com/wp-content/uploads/2022/07/caracteristicas.png' },
-    { title: 'IMO PRODUCTS', src: 'https://brfreight.com/wp-content/uploads/2022/07/desenvolvimento-de-produto.png' },
-    { title: 'CARGO CONSOLIDATION', src: 'https://brfreight.com/wp-content/uploads/2022/07/armazem.png' },
-    { title: 'INTERNATIONAL DESTINATIONS', src: 'https://brfreight.com/wp-content/uploads/2022/07/localizacao.png' },
+    { title: 'PICKUP AND DELIVERY', src: one },
+    { title: 'STUFFING & CONTAINER', src: two },
+    { title: 'SWAPNING & CONTAINER', src: three},
+    { title: 'BOARDING COMP.', src: four },
+    { title: 'PERISHABLE PRODUCTS', src: five},
+    { title: 'IMO PRODUCTS', src: six },
+    { title: 'CARGO CONSOLIDATION', src: seven },
+    { title: 'INTERNATIONAL DESTINATIONS', src: eight },
   ];
 
   return (

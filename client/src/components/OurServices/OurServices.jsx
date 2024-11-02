@@ -3,7 +3,7 @@ import { FaDotCircle } from 'react-icons/fa';
 
 const OurServices = () => {
   return (
-    <div className="relative flex items-center justify-center h-auto lg:h-96 bg-cover bg-center text-white overflow-hidden" style={{ backgroundImage: 'url(https://img.freepik.com/premium-photo/aerial-view-cargo-ship-with-containers-sailing-open-sea-from-topdown-perspective_972667-17643.jpg)' }}>
+    <div className="relative flex items-center mt-32 justify-center h-auto lg:h-96 bg-cover bg-center text-white overflow-hidden" style={{ backgroundImage: 'url(https://img.freepik.com/premium-photo/aerial-view-cargo-ship-with-containers-sailing-open-sea-from-topdown-perspective_972667-17643.jpg)' }}>
       {/* Overlay */}
       <div className="absolute inset-0 bg-black opacity-50"></div>
 
