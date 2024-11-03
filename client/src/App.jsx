@@ -25,11 +25,13 @@ import Containers from "./components/Container/Container";
 import { IconContext } from "react-icons/lib";
 import Incoterms from "./components/Incoterms/Incoterms";
 import ContactUs from "./components/ContactUs/ContactUs";
+import ChatWidget from "./components/ChatWidget/ChatWidget";
 
 function App() {
   return (
     <Router>
       <Navbar />
+      <ChatWidget />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/whoWeAre" element={<AboutSection />} />

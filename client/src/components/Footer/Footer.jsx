@@ -43,7 +43,7 @@ const Footer = () => {
             <div className="flex flex-col w-70 lg:w-96"> {/* Adjust width as needed */}
               <input
                 type="email"
-                placeholder="enter your email"
+                placeholder="Enter your email"
                 className="p-2 text-gray-800 w-full"
               />
               <button className="bg-DarkYellow mt-2 hover:text-white text-gray-800 p-2 w-full rounded-full">

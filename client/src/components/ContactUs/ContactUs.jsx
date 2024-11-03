@@ -97,7 +97,7 @@ const ContactUs = () => {
             className="bg-yellow-400 text-white py-2 px-8 text-lg font-semibold hover:bg-yellow-500 transition duration-300"
             disabled={!captchaVerified} // Disable button until captcha is verified
           >
-            To send
+            Send
           </button>
         </div>
       </form>

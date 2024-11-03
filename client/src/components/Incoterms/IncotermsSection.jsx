@@ -1,5 +1,5 @@
 import React from 'react';
-import cent from "./cent.png"
+import eng from "./eng.png"
 
 const IncotermsSection = () => {
   return (
@@ -18,11 +18,11 @@ const IncotermsSection = () => {
       </p>
 
       {/* Image */}
-      <div className="w-full flex justify-center">
+      <div className="w-full  flex justify-center">
         <img
-          src={cent}
+          src={eng}
           alt="Incoterms Chart"
-          className=" mb-10 lg:w-[600px] rounded"
+          className=" mb-10  border outline outline-black lg:w-[600px] rounded"
            // Adjust size as needed
         />
       </div>

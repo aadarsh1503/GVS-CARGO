@@ -29,50 +29,69 @@ const OurServices = () => {
         <div className="w-full lg:w-1/2 text-lg space-y-4 lg:space-y-0">
           {/* First Row with 2 items */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <a href='/stuffingUnloading'>
             <div className="flex items-center space-x-2">
               <FaDotCircle className="text-yellow-500" />
               <span>Stuffing and Spawning</span>
             </div>
+            </a>
+            <a href='/lcl'>
             <div className="flex items-center lg:w-[500px] space-x-2">
               <FaDotCircle className="text-yellow-500" />
               <span>LCL (less-than-container loaded)</span>
             </div>
+            </a>
           </div>
+          
 
           {/* Second Row with 3 items */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+          <a href='/fcl'>
             <div className="flex items-center lg:w-[500px] space-x-2">
               <FaDotCircle className="text-yellow-500" />
               <span>FCL (full container loaded)</span>
             </div>
+            </a>
+            <a href='/dgr'>
             <div className="flex items-center lg:w-[500px] lg:ml-20 lg:col-span-1 space-x-2">
               <FaDotCircle className="text-yellow-500" />
               <span>DGR / PER</span>
             </div>
+            </a>
+            <a href='/inspection'>
             <div className="flex items-center lg:w-[500px] lg:ml-20 lg:col-span-1 space-x-2">
               <FaDotCircle className="text-yellow-500" />
               <span>Fumigation</span>
             </div>
+            </a>
           </div>
 
           {/* Third Row with 4 items */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
+          <a href='/packaging'>
             <div className="flex items-center space-x-2">
               <FaDotCircle className="text-yellow-500" />
               <span>Packaging</span>
             </div>
+            </a>
+            <a href='/storage'>
             <div className="flex items-center space-x-2">
               <FaDotCircle className="text-yellow-500" />
               <span>Storage</span>
             </div>
+            </a>
+            <a href='/commercial'>
             <div className="flex items-center space-x-2">
               <FaDotCircle className="text-yellow-500" />
               <span>Consulting</span>
             </div>
+            </a>
+            <a href='/insurance'>
             <div className="flex items-center lg:w-[500px] space-x-2">
               <FaDotCircle className="text-yellow-500" />
               <span>Cargo Insurance</span>
             </div>
+            </a>
           </div>
         </div>
       </div>
