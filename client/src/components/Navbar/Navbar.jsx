@@ -165,12 +165,12 @@ const Navbar = () => {
 
   {/* Dropdown Menu (Conditional) */}
   <div
-    className={` w-64 -mt-6 bg-gray-700 rounded-lg shadow-lg z-10 absolute top-full transition-all duration-300 ease-in-out ${
+    className={` w-64 bg-gray-700 rounded-lg shadow-lg z-10 absolute top-full transition-all duration-300 ease-in-out ${
       isOpen ? 'opacity-100 max-h-screen' : 'opacity-0 max-h-0 overflow-hidden'
     }`}
   >
 <div
-  className={`-mt-2 py-5 w-64 bg-gray-700 rounded-lg shadow-lg z-10 absolute top-full transition-all duration-300 ease-in-out ${
+  className={`-mt-96 w-64 bg-gray-700 rounded-lg shadow-lg z-10 absolute top-full transition-all duration-300 ease-in-out ${
     isOpen ? 'opacity-100 max-h-screen' : 'opacity-0 max-h-0 overflow-hidden'
   }`}
 >
