@@ -170,7 +170,7 @@ const Navbar = () => {
     }`}
   >
 <div
-  className={`-mt-10 w-64 bg-gray-700 rounded-xl shadow-lg z-10 absolute  lg:mt-0 transition-all duration-300 ease-in-out ${
+  className={` w-64 bg-gray-700 rounded-xl shadow-lg z-10 absolute  lg:mt-0 transition-all duration-300 ease-in-out ${
     isOpen ? 'opacity-100 max-h-screen' : 'opacity-0 max-h-0 overflow-hidden'
   }`}
 >
