@@ -16,10 +16,10 @@ function AirFreightSection() {
           </div>
           <div className="w-full lg:w-1/2 ml-4 lg:ml-0">
             <p className="text-md mt-4 text-GrayDark">
-              <strong>BR Freight Shipping</strong>, through its professionalism and solidity, has achieved over the years and through several successful projects, an excellent relationship and a strong bond with all airlines, thus offering the best in cargo transportation, in addition to excellent freight conditions for each type of merchandise, whether in Brazil or abroad.
+              <strong>GVS Cargo & Logistics</strong>, through its professionalism and solidity, has achieved over the years and through several successful projects, an excellent relationship and a strong bond with all airlines, thus offering the best in cargo transportation, in addition to excellent freight conditions for each type of merchandise, whether in Brazil or abroad.
             </p>
-            <p className="text-md mt-4">
-              Also providing a complete and personalized <strong>DOOR TO DOOR</strong> service, with complete security, speed and transparency; BR Freight Shipping collects your merchandise, accommodates it, ships it, tracks it and delivers it anywhere in the world.
+            <p className="text-md mt-4 text-Graytext">
+              Also providing a complete and personalized <strong>DOOR TO DOOR</strong> service, with complete security, speed and transparency; GVS Cargo & Logistics collects your merchandise, accommodates it, ships it, tracks it and delivers it anywhere in the world.
             </p>
           </div>
         </div>

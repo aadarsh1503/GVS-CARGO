@@ -29,9 +29,9 @@ const Hero = () => {
         >
             WE SEND FOR YOU!
             <h1 className="lg:text-2xl text-xl font-roboto text-center flex items-center mt-4 justify-center">
-                <FontAwesomeIcon icon={faAngleDoubleRight} className="text-lg text-yellow-300 mx-2" />
-                Air <FontAwesomeIcon icon={faAngleDoubleRight} className="text-lg text-yellow-300 mx-2" />
-                Maritime <FontAwesomeIcon icon={faAngleDoubleRight} className="text-lg text-yellow-300 mx-2" />
+                <FontAwesomeIcon icon={faAngleDoubleRight} className="text-lg text-DarkYellow mx-2" />
+                Air <FontAwesomeIcon icon={faAngleDoubleRight} className="text-lg text-DarkYellow mx-2" />
+                Maritime <FontAwesomeIcon icon={faAngleDoubleRight} className="text-lg text-DarkYellow mx-2" />
                 Road
             </h1>
         </div>
@@ -39,7 +39,7 @@ const Hero = () => {
         <div className="max-w-lg md:w-1/2 space-y-4">
           <p className="text-gray-500 font-roboto leading-relaxed">
           Founded by professionals with extensive experience in the
-international trade sector, BR Freight Shipping
+international trade sector, GVS Cargo & Logistics
 operates in all segments of foreign trade,
 working side by side with its customers as a
 service provider, executing
@@ -48,7 +48,7 @@ of exports and imports with professionalism and competence, and providing fast a
 in various types of customs processes and
 on all continents.
           </p>
-          <button className="bg-yellow-400 lg:ml-56 text-white font-semibold px-6 py-3 rounded-full shadow-md hover:bg-yellow-500 transition duration-300">
+          <button className="bg-DarkYellow lg:ml-56 text-white font-semibold px-6 py-3 rounded-full shadow-md hover:bg-yellow-500 transition duration-300">
             Contact Us
           </button>
         </div>

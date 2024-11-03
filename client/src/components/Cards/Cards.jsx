@@ -8,13 +8,13 @@ const Cards = () => {
     {
       id: 1,
       title: 'Air',
-      description: 'With safety, speed and transparency, BR Freight Shipping collects, accommodates, ships, tracks and delivers anywhere in the world.',
+      description: 'With safety, speed and transparency, GVS Cargo & Logistics collects, accommodates, ships, tracks and delivers anywhere in the world.',
       src: aero, // No braces here
     },
     {
       id: 2,
       title: 'Road',
-      description: 'BR Freight Shipping is widely consolidated to offer you its entire infrastructure in road freight transport services.',
+      description: 'GVS Cargo & Logistics is widely consolidated to offer you its entire infrastructure in road freight transport services.',
       src: Truck, // No braces here
     },
     {

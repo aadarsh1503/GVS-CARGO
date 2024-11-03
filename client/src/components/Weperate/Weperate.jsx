@@ -38,7 +38,7 @@ const Weperate = () => {
         <h2 className="text-xl lg:text-3xl lg:-ml-10 font-bold text-Graytext">Where We Operate:</h2>
 
         <button 
-          className="flex items-center justify-center ml-4 hover:text-black bg-DarkOrange text-white py-2 px-4 lg:py-4 lg:px-8 rounded-full"
+          className="flex items-center justify-center ml-4 hover:text-black bg-DarkYellow text-white py-2 px-4 lg:py-4 lg:px-8 rounded-full"
           onClick={handleBrazilButtonClick}
         >
           <FaMapMarkedAlt className="text-lg mr-2 " />
@@ -46,7 +46,7 @@ const Weperate = () => {
         </button>
 
         <button 
-          className="flex items-center justify-center hover:text-black bg-DarkOrange text-white py-2 px-4 lg:py-4 lg:px-8 rounded-full"
+          className="flex items-center justify-center hover:text-black bg-DarkYellow text-white py-2 px-4 lg:py-4 lg:px-8 rounded-full"
           onClick={handleWorldButtonClick}
         >
           <FaGlobeAfrica className="text-sm mr-2" />
@@ -65,7 +65,7 @@ const Weperate = () => {
 
       {/* Modal for Brazil */}
       {modalContent === 'brazil' && (
-        <div className="fixed inset-0 flex items-center justify-center font-roboto bg-black bg-opacity-50">
+        <div className="fixed inset-0 flex lg:p-0 p-6 items-center justify-center font-roboto bg-black bg-opacity-50">
           <div className="bg-white p-6 mb-10 rounded-lg shadow-lg max-w-3xl w-full relative">
             <button 
               onClick={handleCloseModal} 
@@ -82,7 +82,7 @@ const Weperate = () => {
             </p>
             <button 
               onClick={handleCloseModal} 
-              className="absolute bottom-1 right-4 mt-10 flex items-center justify-center bg-black text-yellow-600 py-2 px-4 "
+              className="absolute bottom-1 right-4 mt-10 flex items-center justify-center bg-black text-DarkYellow py-2 px-4 "
             >
               To Close
             </button>
@@ -92,7 +92,7 @@ const Weperate = () => {
 
       {/* Modal for World */}
       {modalContent === 'world' && (
-        <div className="fixed inset-0 flex items-center justify-center font-roboto bg-black bg-opacity-50">
+        <div className="fixed inset-0 flex items-center lg:p-0 p-6 justify-center font-roboto bg-black bg-opacity-50">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-3xl w-full relative">
             <button 
               onClick={handleCloseModal} 
@@ -108,7 +108,7 @@ const Weperate = () => {
             </div>
             <button 
               onClick={handleCloseModal} 
-              className="absolute bottom-2 right-4 flex items-center justify-center bg-black text-yellow-600 py-2 px-4"
+              className="absolute bottom-2 right-4 flex items-center justify-center bg-black text-DarkYellow py-2 px-4"
             >
               To Close
             </button>

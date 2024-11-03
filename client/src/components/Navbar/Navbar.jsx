@@ -4,13 +4,13 @@ import { MdLocationOn } from 'react-icons/md';
 import { useState } from 'react';
 import { FaChevronDown, FaTimes ,FaBars  } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import i10 from "./i10.png"
+import GVS from "./GVS.png"
 
 
 const Navbar = () => {
   const items = [
     'Start',
-    'BR Freight Shipping',
+    'GVS Cargo & Logistics',
     'Freights',
     'Services',
     'Tools',
@@ -27,10 +27,10 @@ const Navbar = () => {
 
   return (
     <div>
-    <header className="bg-customGray  py-2">
+    <header className="bg-DarkBlue  py-2">
       {/* Top Bar */}
       <div className="flex justify-between max-w-4xl mx-auto font-roboto items-center px-4 py-3 text-white text-sm">
-  <span>Welcome to BR Freight Shipping</span>
+  <span>Welcome to GVS Cargo & Logistics</span>
   <div className="flex font-roboto space-x-2">
     <img src="data:image/png;base64,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" alt="Image 1" className="inline-block w-5 h-4 " />
     <img src="data:image/png;base64,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" alt="Image 2" className="inline-block w-5 h-4 " />
@@ -42,26 +42,27 @@ const Navbar = () => {
       </header>
 
       {/* Main Navbar */}
-      <div className="bg-white py-11">
+      <div className="bg-white py-6">
   <div className="container mx-auto max-w-5xl flex flex-col lg:flex-row justify-between items-center">
     {/* Logo */}
     <div className="mb-6 lg:mb-0">
-      <img src={i10} alt="BR Freight Shipping" className="h-20" />
+      <img src={GVS} alt="GVS Cargo & Logistics" className="h-36 W-56" />
     </div>
 
     {/* Contact Info */}
     <div className="flex flex-col font-roboto lg:flex-row max-w-5xl mx-auto items-center space-y-4 lg:space-y-0 lg:space-x-6 text-gray-700">
       <div className="flex items-center space-x-2">
-        <MdLocationOn className="text-yellow-300 text-5xl" />
-        <span className='text-sm text-left'>Av Monsenhor Antonio Benedito <br /> Spadadari 71 sala 02 Louveira -SP <br /> CEP : 13290-000</span>
+        <MdLocationOn className="text-DarkBlue text-5xl" />
+        <span className='text-sm text-left'>Flat 22, Building 661,Block 712, <br /> Road 1208, P.O Box 54121, Manama <br /> Kingdom of Bahrain.</span>
       </div>
       <div className="flex items-center space-x-2">
-        <FaPhoneAlt className="text-white bg-yellow-300 rounded text-4xl p-2" />
-        <span className='text-sm '>+55 (11) 4395-7585</span>
+        <FaPhoneAlt className="text-white bg-DarkBlue rounded text-4xl p-2" />
+        <span className='text-sm '>+971 45284037
+        </span>
       </div>
       <div className="flex items-center space-x-2">
-        <FaWhatsapp className="text-white bg-yellow-300 text-4xl p-1" />
-        <span className='text-sm '>+55 (11) 99317-3985</span>
+        <FaWhatsapp className="text-white bg-DarkBlue text-4xl p-1" />
+        <span className='text-sm '>+971554201838</span>
       </div>
     </div>
   </div>
@@ -69,19 +70,19 @@ const Navbar = () => {
 
 
       {/* Navigation Menu */}
-      <nav className="bg-YellowDark font-roboto py-7">
+      <nav className="bg-DarkBlue font-roboto py-7">
       <div className="container max-w-6xl mx-auto flex items-center justify-between">
         {/* Desktop Navigation */}
-        <ul className="hidden sm:flex space-x-6 bg-GrayDark py-2 px-14 rounded-full">
-          {['Start', 'A BR Freight Shipping', 'Freights', 'Services', 'Ferramentas'].map((item) => (
+        <ul className="hidden sm:flex space-x-6 bg-white py-2  px-14 rounded-full">
+          {['Start', 'A GVS Cargo & Logistics', 'Freights', 'Services', 'Tools'].map((item) => (
             <li className="relative group font-bold" key={item}>
               {item === 'Start' ? (
                 // Link only for 'Start' item
                 <a href="/">
                   <button
-                    className={`text-white py-3 lg:ml-0 flex items-center ${
-                      selectedItem === item ? 'border-b-4 px-4 border-YellowDark' : ''
-                    } hover:border-b-4 hover:border-YellowDark`}
+                    className={`text-black py-3 lg:ml-0 flex items-center ${
+                      selectedItem === item ? 'border-b-4 px-4 border-DarkBlue' : ''
+                    } hover:border-b-4 hover:border-DarkBlue`}
                     onClick={() => setSelectedItem(item)}
                   >
                     {item}
@@ -90,9 +91,9 @@ const Navbar = () => {
               ) : (
                 // No link for other items
                 <button
-                  className={`text-white py-3 lg:ml-0 flex items-center ${
-                    selectedItem === item ? 'border-b-4 px-4 border-YellowDark' : ''
-                  } hover:border-b-4 hover:border-YellowDark`}
+                  className={`text-black py-3 lg:ml-0 flex items-center ${
+                    selectedItem === item ? 'border-b-4 px-4 border-DarkBlue' : ''
+                  } hover:border-b-4 hover:border-DarkBlue`}
                   onClick={() => setSelectedItem(item)}
                 >
                   {item}
@@ -101,8 +102,8 @@ const Navbar = () => {
               )}
 
         {/* Dropdown Options based on each item */}
-        {item === 'A BR Freight Shipping' && (
-          <div className="absolute hidden group-hover:flex flex-col z-10 bg-GrayDark  text-white  lg:w-[256px] -ml-2   rounded">
+        {item === 'A GVS Cargo & Logistics' && (
+          <div className="absolute hidden group-hover:flex flex-col z-10 bg-white  text-black   lg:w-[256px] -ml-2   rounded">
            <a href="/whoWeAre" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6 text-left">Who We Are</a>
 <a href="/whereinBrazil" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6">Where We Operate in Brazil</a>
 <a href="/operateWorld" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6">Where We Operate in the World</a>
@@ -111,15 +112,15 @@ const Navbar = () => {
           </div>
         )}
         {item === 'Freights' && (
-          <div className="absolute hidden group-hover:flex flex-col z-10 bg-GrayDark text-white  shadow-lg p-2  lg:w-[150px] -ml-2 rounded">
+          <div className="absolute hidden group-hover:flex flex-col z-10 bg-white text-black  shadow-lg p-2  lg:w-[150px] -ml-2 rounded">
             <a href="/airFreight" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins">Air Freight</a>
             <a href="/seaFreight" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins">Sea Freight</a>
             <a href="/roadFreight" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins">Road Freight</a>
           </div>
         )}
         {item === 'Services' && (
-          <div className="absolute hidden group-hover:flex flex-col bg-GrayDark z-10 text-white shadow-lg  lg:w-[325px] -ml-2 rounded">
-            <a href="/stuffingUnloading" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins  px-6">Stuffing Unloading - BR Freight Stiffing</a>
+          <div className="absolute hidden group-hover:flex flex-col bg-white z-10 text-black shadow-lg  lg:w-[325px] -ml-2 rounded">
+            <a href="/stuffingUnloading" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins  px-6">Stuffing Unloading - GVS Cargo & Logistics</a>
             <a href="/lcl" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins  px-6">LCL - Less Than Container Loaded</a>
             <a href="/fcl" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins  px-6">FCL- Full Container Loaded</a>
             <a href="/customClearance" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins  px-6">Custom Clearance</a>
@@ -131,9 +132,9 @@ const Navbar = () => {
             <a href="/insurance" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins  px-6">International Cargo Insurance</a>
           </div>
         )}
-        {item === 'Ferramentas' && (
-          <div className="absolute hidden group-hover:flex flex-col z-10 bg-GrayDark text-white shadow-lg rounded">
-          <a href="/incoterms" className="py-4 hover:bg-YellowDark px-4 text-sm">INCOTERMS </a>
+        {item === 'Tools' && (
+          <div className="absolute hidden group-hover:flex flex-col z-10 font-roboto bg-white text-black shadow-lg rounded">
+          <a href="/incoterms" className="py-4 hover:bg-YellowDark px-4 text-sm">Incoterms </a>
             <a href="/container" className="py-4 hover:bg-YellowDark px-4 text-sm">Container</a>
           </div>
         )}
@@ -143,7 +144,7 @@ const Navbar = () => {
 
   {/* Quote Button */}
   <a href='/contactUs'>
-  <button className="hidden sm:block bg-gray-900  text-white px-24 py-2 rounded-xl">
+  <button className="hidden sm:block bg-white hover:bg-YellowDark   text-black px-24 py-2 rounded-xl">
     Request a Quote
   </button>
   </a>
@@ -164,12 +165,12 @@ const Navbar = () => {
 
   {/* Dropdown Menu (Conditional) */}
   <div
-    className={` w-64 bg-gray-700 rounded-lg shadow-lg z-10 absolute top-full transition-all duration-300 ease-in-out ${
+    className={` w-64 -mt-6 bg-gray-700 rounded-lg shadow-lg z-10 absolute top-full transition-all duration-300 ease-in-out ${
       isOpen ? 'opacity-100 max-h-screen' : 'opacity-0 max-h-0 overflow-hidden'
     }`}
   >
 <div
-  className={`-mt-28 w-64 bg-gray-700 rounded-lg shadow-lg z-10 absolute top-full transition-all duration-300 ease-in-out ${
+  className={`-mt-2 py-5 w-64 bg-gray-700 rounded-lg shadow-lg z-10 absolute top-full transition-all duration-300 ease-in-out ${
     isOpen ? 'opacity-100 max-h-screen' : 'opacity-0 max-h-0 overflow-hidden'
   }`}
 >
@@ -208,7 +209,7 @@ const Navbar = () => {
         {/* Dropdown menu for various sections */}
         {item === 'Services' && openDropdown === index && (
           <div className="flex flex-col bg-gray-700 text-left text-xs font-roboto items-start text-white  lg:w-[1200px] rounded mt-2">
-            <a href="/stuffingUnloading" className="py-3 hover:bg-yellow-500  font-thin text-xs px-1">Stuffing Unloading - BR Freight Stiffing</a>
+            <a href="/stuffingUnloading" className="py-3 hover:bg-yellow-500  font-thin text-xs px-1">Stuffing Unloading - GVS Cargo & Logistics</a>
             <a href="/lcl" className="py-3 hover:bg-yellow-500  font-thin text-xs px-1">LCL - Less Than Container Loaded</a>
             <a href="/customClearance" className="py-3 hover:bg-yellow-500  font-thin text-xs px-1">Custom Clearance</a>
             <a href="/dgr" className="py-3 hover:bg-yellow-500  font-thin text-xs px-1">DGR-per-Dangerous perishable Products  </a>
@@ -236,7 +237,7 @@ const Navbar = () => {
 )}
 
 
-{item === 'BR Freight Shipping' && openDropdown === index && (
+{item === 'GVS Cargo & Logistics' && openDropdown === index && (
   <div className="flex flex-col bg-gray-700 text-left items-start text-white lg:w-[700px] rounded mt-2">
     <a href="/whoWeAre" className="w-full py-3 hover:bg-yellow-500 font-thin text-xs px-4">Who We Are</a>
     <a href="/whereinBrazil" className="w-full py-3 hover:bg-yellow-500 font-thin text-xs px-4">Where We Operate in Brazil</a>

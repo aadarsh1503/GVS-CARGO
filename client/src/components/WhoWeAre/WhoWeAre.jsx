@@ -14,10 +14,10 @@ const AboutSection = () => {
   {/* Left Text Section */}
   <div className="text-gray-500 md:w-1/2 lg:p-0 space-y-4 md:space-y-6 text-justify">
     <p>
-      Founded by professionals with extensive experience in the international trade sector, BR Freight Shipping operates in all segments of foreign trade, working side by side with its customers as a service provider, executing each stage of the logistics of exports and imports with professionalism and competence, and providing fast and complete solutions in various types of customs processes and on all continents.
+      Founded by professionals with extensive experience in the international trade sector, GVS Cargo & Logistics operates in all segments of foreign trade, working side by side with its customers as a service provider, executing each stage of the logistics of exports and imports with professionalism and competence, and providing fast and complete solutions in various types of customs processes and on all continents.
     </p>
     <p>
-      In addition to its solid structure, BR Freight Shipping has partnered with the most traditional and competent operators on each continent, establishing very important partnerships with which it now offers an increasingly wider range of services, perfectly suited to the import and export policies of each country, thus operating with greater agility and obtaining results that are more suited to the needs of each of its customers.
+      In addition to its solid structure, GVS Cargo & Logistics has partnered with the most traditional and competent operators on each continent, establishing very important partnerships with which it now offers an increasingly wider range of services, perfectly suited to the import and export policies of each country, thus operating with greater agility and obtaining results that are more suited to the needs of each of its customers.
     </p>
     <div className="w-full flex justify-center">
       <div className="w-72 md:w-96 h-4 md:h-6  lg:mt-40 relative overflow-hidden">
@@ -34,16 +34,16 @@ const AboutSection = () => {
       </div>
     </div>
     <p>
-      With a team of professionals highly committed to quality excellence, both in customer service and in the development of its services, BR Freight Shipping is constantly improving its staff, concerned with the professional growth of each of its employees, through a daily training and qualification policy, based on the most rigorous international standards.
+      With a team of professionals highly committed to quality excellence, both in customer service and in the development of its services, GVS Cargo & Logistics is constantly improving its staff, concerned with the professional growth of each of its employees, through a daily training and qualification policy, based on the most rigorous international standards.
     </p>
     <p>
-      For BR Freight Shipping, this has meant an important consolidation in the international trade market, where it is seen as an icon in this segment, both inside and outside Brazil, achieving complete customer satisfaction in each area in which it operates and building, together with them, several stories of growth, trust, and success.
+      For GVS Cargo & Logistics, this has meant an important consolidation in the international trade market, where it is seen as an icon in this segment, both inside and outside Brazil, achieving complete customer satisfaction in each area in which it operates and building, together with them, several stories of growth, trust, and success.
     </p>
   </div>
 </div>
 
       <Bounce />
-      <div className='-ml-10 w-56'><Slide /></div>
+      <div className='-ml-10 lg:w-full w-56'><Slide /></div>
       
       
       

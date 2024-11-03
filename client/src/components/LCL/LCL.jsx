@@ -26,9 +26,9 @@ function LCL() {
       <div className='mb-10 mt-10'>
         <Slide />
       </div>
-      <div className='lg:-ml-32'>
+      
         <ColorBar />
-      </div>
+      
     </div>
   );
 }

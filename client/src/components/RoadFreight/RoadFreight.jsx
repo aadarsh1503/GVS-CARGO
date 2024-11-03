@@ -16,7 +16,7 @@ function RoadFreight() {
           </div>
           <div className="w-full lg:w-1/2 ml-4 lg:ml-0">
             <p className="text-md mt-4 font-semibold text-Graytext">
-              <strong>BR Freight Shipping</strong> is widely consolidated to offer you its entire infrastructure in road freight transport services, regardless of its size, value, distance to be covered, quantity or type of product, including special cargo, perishable products or even dangerous cargo, through its own transport or in partnerships with the most traditional and competent companies in the market.
+              <strong>GVS Cargo & Logistics</strong> is widely consolidated to offer you its entire infrastructure in road freight transport services, regardless of its size, value, distance to be covered, quantity or type of product, including special cargo, perishable products or even dangerous cargo, through its own transport or in partnerships with the most traditional and competent companies in the market.
             </p>
             <p className="text-md mt-4 font-semibold text-Graytext">
             We also offer full support at border crossings, as well as detailed monitoring of each stage of your cargo, which can be tracked in real time on our Portal. This is much more than a differential of our Company; it is respect and dedication to each client who relies on our services.

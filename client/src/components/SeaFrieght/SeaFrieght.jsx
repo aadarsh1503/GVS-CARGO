@@ -21,14 +21,14 @@ Always seeking the best service for our customers, where all their needs are met
 
 
             </p>
-            <p className='mt-2 mb-2'>Our team of professionals develops your import or export project, paying attention to every detail for a successful operation, obtaining fast, safe results that meet each of your needs.</p>
-            <p><strong>BR Freight Shipping</strong> develops the best transportation option for each type of merchandise, indicating the ideal container for your cargo, including complete monitoring by our professionals, both at the time of shipment at the origin and upon unloading at any destination. </p>
-            <p className='mt-2'>We also offer the best conditions for chartering ships for special cargo and/or IMO (Cargo of dangerous products).</p>
-            <p className="text-md mt-4">
-              Also providing a complete and personalized <strong>DOOR TO DOOR</strong> service, with complete security, speed and transparency; BR Freight Shipping collects your merchandise, accommodates it, ships it, tracks it and delivers it anywhere in the world.
+            <p className='mt-2 mb-2 text-Graytext'>Our team of professionals develops your import or export project, paying attention to every detail for a successful operation, obtaining fast, safe results that meet each of your needs.</p>
+            <p className='text-Graytext'><strong>GVS Cargo & Logistics</strong> develops the best transportation option for each type of merchandise, indicating the ideal container for your cargo, including complete monitoring by our professionals, both at the time of shipment at the origin and upon unloading at any destination. </p>
+            <p className='mt-2 text-Graytext'>We also offer the best conditions for chartering ships for special cargo and/or IMO (Cargo of dangerous products).</p>
+            <p className="text-md mt-4 text-Graytext">
+              Also providing a complete and personalized <strong>DOOR TO DOOR</strong> service, with complete security, speed and transparency; GVS Cargo & Logistics collects your merchandise, accommodates it, ships it, tracks it and delivers it anywhere in the world.
             </p>
             <h1 className='mt-4 font-semibold mb-4 text-Graytext'>Our shipping projects include:</h1>
-            <p>• Exclusive service for picking up and delivering goods (BR Freight Shipping “Door to Door” System).< br />
+            <p className='text-Graytext'>• Exclusive service for picking up and delivering goods (GVS Cargo & Logistics “Door to Door” System).< br />
 • Collection and delivery of containers for stuffing< br />
 • Stuffing and unloading of containers< br />
 • Exclusive service for direct monitoring of the shipment of your cargo< br />

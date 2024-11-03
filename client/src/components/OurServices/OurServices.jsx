@@ -3,9 +3,19 @@ import { FaDotCircle } from 'react-icons/fa';
 
 const OurServices = () => {
   return (
-    <div className="relative flex items-center mt-32 justify-center h-auto lg:h-96 bg-cover bg-center text-white overflow-hidden" style={{ backgroundImage: 'url(https://img.freepik.com/premium-photo/aerial-view-cargo-ship-with-containers-sailing-open-sea-from-topdown-perspective_972667-17643.jpg)' }}>
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black opacity-50"></div>
+    <div className="relative flex items-center mt-32 justify-center h-auto lg:h-96 bg-cover text-white overflow-hidden">
+    {/* Background Video */}
+    <video
+      className="absolute inset-0 w-full h-full object-cover"
+      src="https://videos.pexels.com/video-files/2257010/2257010-uhd_2560_1440_24fps.mp4"
+      autoPlay
+      loop
+      muted
+      playsInline
+    ></video>
+  
+    {/* Overlay */}
+    <div className="absolute inset-0 bg-black opacity-50"></div>
 
       {/* Content */}
       <div className="relative z-10 flex flex-col lg:flex-row w-full max-w-5xl mx-auto p-4 lg:p-8">

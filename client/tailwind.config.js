@@ -20,15 +20,16 @@ export default {
         GrayDark: '#726968',
         YellowDark: '#F0DC13',
         Graytext: '#7A7A7A',
-        DarkYellow : '#FFBE0D',
-        DarkOrange:'#F59608',
+        DarkYellow : '#FDBE10',
+        DarkOrange:'#FDBE10',
         GrayFoot:'#565656',
-        YellowPoint :'#FEDF51',
+        YellowPoint :'#FDBE10',
         GrayBar:'#8B7F7E',
-        YellowLight:'#F5DC4A'
+        YellowLight:'#FDBE10',
+        DarkBlue :'#243670'
       },
       backgroundImage: {
-        'stripes': "linear-gradient(45deg, #ccac00 25%, transparent 25%, transparent 50%, #ccac00 50%, #ccac00 75%, transparent 75%, transparent)",
+        'stripes': "linear-gradient(45deg, #FDBE10 25%, transparent 25%, transparent 50%, #FDBE10 50%, #FDBE10 75%, transparent 75%, transparent)",
       },
       backgroundSize: {
         'stripes': '10px 10px',

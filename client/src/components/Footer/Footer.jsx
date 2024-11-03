@@ -1,30 +1,38 @@
 import React from 'react';
-import { FaLinkedin, FaInstagram } from 'react-icons/fa';
-import i10 from "./i10.png"
-import i12 from "./i12.png"
+import { FaLinkedin, FaInstagram , FaFacebook ,FaTwitter } from 'react-icons/fa';
+import Foot from "./Foot.jpg"
+import GVS from "./Gvs.png"
+
 
 const Footer = () => {
   return (
-    <footer className="bg-GrayFoot lg:h-[600px] text-gray-200 py-8">
+    <footer className="bg-DarkBlue lg:h-[600px] text-gray-200 py-8">
       <div className="container mx-auto flex flex-col lg:flex-row max-w-7xl justify-between items-center px-4">
         
         {/* Left Section: Logo and Social Icons */}
         <div className="flex flex-col items-center lg:items-start mb-8 lg:mb-0">
-          {/* BR Freight Shipping Logo */}
-          <img src={i10} alt="BR Freight Shipping" className="h-20 mb-4" />
+          {/* GVS Cargo & Logistics Logo */}
+          <img src={GVS} alt="GVS Cargo & Logistics" className="h-44  rounded-xl w-[100%] mb-4" />
 
           {/* Social Icons */}
-          <div className="flex space-x-4">
-            <div className="bg-yellow-400 p-2 rounded-full">
-              <FaLinkedin className="text-gray-800 text-3xl" />
-            </div>
-            <div className="bg-yellow-400 p-2 rounded-full">
-              <FaInstagram className="text-gray-800 text-3xl" />
-            </div>
-          </div>
+          <div className="flex space-x-12">
+  <a href="https://www.linkedin.com/company/gvsbahrain/" target="_blank" rel="noopener noreferrer" className="bg-yellow-400 p-2 rounded-full">
+    <FaLinkedin className="text-gray-800 text-3xl" />
+  </a>
+  <a href="https://instagram.com/gvscargo" target="_blank" rel="noopener noreferrer" className="bg-yellow-400 p-2 rounded-full">
+    <FaInstagram className="text-gray-800 text-3xl" />
+  </a>
+  <a href="https://facebook.com/gvscargo" target="_blank" rel="noopener noreferrer" className="bg-yellow-400 p-2 rounded-full">
+    <FaFacebook className="text-gray-800 text-3xl" />
+  </a>
+  <a href="https://twitter.com/gvscargo" target="_blank" rel="noopener noreferrer" className="bg-yellow-400 p-2 rounded-full">
+    <FaTwitter className="text-gray-800 text-3xl" />
+  </a>
+</div>
+
 
           {/* Copyright */}
-          <p className="mt-4 text-sm text-center lg:text-left">© 2022 BR Freight Shipping. All Rights Reserved.</p>
+          <p className="mt-4 text-sm text-center  lg:text-left">© 2024 GVS Cargo & Logistics. All Rights Reserved.</p>
         </div>
 
         {/* Right Section: Newsletter and Developer Credit */}
@@ -38,7 +46,7 @@ const Footer = () => {
                 placeholder="enter your email"
                 className="p-2 text-gray-800 w-full"
               />
-              <button className="bg-yellow-300 mt-2 hover:text-white text-gray-800 p-2 w-full rounded-full">
+              <button className="bg-DarkYellow mt-2 hover:text-white text-gray-800 p-2 w-full rounded-full">
                 Register
               </button>
             </div>
@@ -47,7 +55,7 @@ const Footer = () => {
           {/* Developer Credit */}
           <div className="flex flex-col items-center">
             <p className="text-sm mb-2 text-center">Developed and monitored by:</p>
-            <img src={i12} alt="Alumiar Logo" className="h-36 w-full lg:w-auto" />
+            <img src={Foot} alt="Alumiar Logo" className="h-62 w-46 rounded-xl lg:w-72" />
           </div>
         </div>
       </div>
