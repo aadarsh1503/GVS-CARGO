@@ -20,7 +20,7 @@ const Hero = () => {
       
     
       <div
-            className='text-white font-roboto lg:text-6xl text-5xl  py-32  lg:py-72 text-center min-h-screen font-bold bg-black'
+            className='text-white font-roboto lg:text-6xl text-5xl lg:w-full  py-32 h-70 lg:py-72 text-center lg:min-h-screen font-bold bg-black'
             style={{
                  backgroundImage: `url(${i8})`, // Replace with your image URL
                 backgroundSize: 'cover',
@@ -48,19 +48,19 @@ of exports and imports with professionalism and competence, and providing fast a
 in various types of customs processes and
 on all continents.
           </p>
+          <a href='/contactUs'>
           <button className="bg-DarkYellow lg:ml-56 text-white font-semibold px-6 py-3 rounded-full shadow-md hover:bg-yellow-500 transition duration-300">
             Contact Us
           </button>
+          </a>
         </div>
+        
         
 
         <div className="mt-8 md:mt-0 md:w-1/2 flex justify-center">
-          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden">
+          <div className="relative w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden">
             <img src={i13} alt="Shipping Illustration" className="w-full h-full object-cover" />
-            <div
-              className="absolute inset-0  rounded-full"
-              style={{ clipPath: 'circle(50% at 50% 50%)' }}
-            ></div>
+            
           </div>
         </div>
       </section>

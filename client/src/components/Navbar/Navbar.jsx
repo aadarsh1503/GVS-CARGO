@@ -32,13 +32,15 @@ const Navbar = () => {
 
   return (
     <div>
-    <header className="bg-DarkBlue  py-2">
+    <header className="bg-DarkBlue">
       {/* Top Bar */}
-      <div className="flex justify-between max-w-4xl mx-auto font-roboto items-center px-4 py-3 text-white text-sm">
+      <div className="flex justify-between max-w-4xl mx-auto font-roboto items-center px-4 py-1 text-white text-sm">
   <span>Welcome to GVS Cargo & Logistics</span>
-  
-</div>
+  <div className='mt-1'>
 <LanguageSwitcher />
+</div>
+</div>
+
 
       </header>
 
@@ -54,7 +56,7 @@ const Navbar = () => {
     <div className="flex flex-col font-roboto lg:flex-row max-w-5xl mx-auto items-center space-y-4 lg:space-y-0 lg:space-x-6 text-gray-700">
       <div className="flex items-center space-x-2">
         <MdLocationOn className="text-DarkBlue text-5xl" />
-        <span className='text-sm text-left'>Flat 22, Building 661,Block 712, <br /> Road 1208, P.O Box 54121, Manama <br /> Kingdom of Bahrain.</span>
+        <span className='text-sm text-left'>221 Salah Al Din St -  <br /> Deira - Dubai -  <br />United Arab Emirates</span>
       </div>
       <div className="flex items-center space-x-2">
         <FaPhoneAlt className="text-white bg-DarkBlue rounded text-4xl p-2" />
@@ -63,7 +65,7 @@ const Navbar = () => {
       </div>
       <div className="flex items-center space-x-2">
         <FaWhatsapp className="text-white bg-DarkBlue text-4xl p-1" />
-        <span className='text-sm '>+971554201838</span>
+        <span className='text-sm '>+971 554201838</span>
       </div>
     </div>
   </div>
@@ -73,40 +75,47 @@ const Navbar = () => {
       {/* Navigation Menu */}
       <nav className="bg-DarkBlue font-roboto py-7">
       <div className="container max-w-6xl mx-auto flex items-center justify-between">
-        {/* Desktop Navigation */}
-        <ul className="hidden sm:flex space-x-6 bg-white py-2  px-14 rounded-full">
-          {['Home', 'About Us', 'Freights', 'Services', 'Tools'].map((item) => (
-            <li className="relative group font-bold" key={item}>
-              {item === 'Home' ? (
-                // Link only for 'Start' item
-                <a href="/">
-                  <button
-                    className={`text-black py-3 lg:ml-0 flex items-center ${
-                      selectedItem === item ? 'border-b-4 px-4 border-DarkBlue' : ''
-                    } hover:border-b-4 hover:border-DarkBlue`}
-                    onClick={() => setSelectedItem(item)}
-                  >
-                    {item}
-                  </button>
-                </a>
-              ) : (
-                // No link for other items
-                <button
-                  className={`text-black py-3 lg:ml-0 flex items-center ${
-                    selectedItem === item ? 'border-b-4 px-4 border-DarkBlue' : ''
-                  } hover:border-b-4 hover:border-DarkBlue`}
-                  onClick={() => setSelectedItem(item)}
-                >
-                  {item}
-                  <FaChevronDown className="ml-2" />
-                </button>
-              )}
+    {/* Desktop Navigation */}
+    <ul className="hidden sm:flex  space-x-3 bg-white py-2 px-10 rounded-full">
+        {['Home', 'About Us', 'Freights', 'Services', 'Tools'].map((item) => (
+            <li className="relative group" key={item}>
+                {item === 'Home' ? (
+                    // Link only for 'Home' item
+                    <a href="/">
+                        <button
+                            className={`text-black py-2 px-6 flex items-center min-w-[100px] relative`}
+                            onClick={() => setSelectedItem(item)}
+                        >
+                            {item}
+                            <span
+                                className={`absolute bottom-0 font-roboto left-0 w-full h-1 bg-DarkBlue transition-opacity duration-300 ${
+                                    selectedItem === item || 'group-hover:opacity-100 opacity-0'
+                                }`}
+                            ></span>
+                        </button>
+                    </a>
+                ) : (
+                    // No link for other items
+                    <button
+                        className={`text-black font-roboto py-2 px-4 flex items-center min-w-[100px] relative`}
+                        onClick={() => setSelectedItem(item)}
+                    >
+                        {item}
+                        <FaChevronDown className="ml-2" />
+                        <span
+                            className={`absolute bottom-0 left-0 w-full h-1 bg-DarkBlue transition-opacity duration-300 ${
+                                selectedItem === item || 'group-hover:opacity-100 opacity-0'
+                            }`}
+                        ></span>
+                    </button>
+                )}
+          
 
         {/* Dropdown Options based on each item */}
         {item === 'About Us' && (
           <div className="absolute hidden group-hover:flex flex-col z-10 bg-white  text-black   lg:w-[256px] -ml-2   rounded">
            <a href="/whoWeAre" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6 text-left">Who We Are</a>
-<a href="/whereinBrazil" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6">Where We Operate in Brazil</a>
+<a href="/whereinUAE" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6">Where We Operate in UAE</a>
 <a href="/operateWorld" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6">Where We Operate in the World</a>
 <a href="/missionvisionandvalues" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6">Mission, Vision, and Values</a>
 
@@ -241,7 +250,7 @@ const Navbar = () => {
 {item === 'About Us' && openDropdown === index && (
   <div className="flex flex-col bg-gray-700 text-left items-start text-white lg:w-[700px] rounded mt-2">
     <a href="/whoWeAre" className="w-full py-3 hover:bg-yellow-500 font-thin text-xs px-4">Who We Are</a>
-    <a href="/whereinBrazil" className="w-full py-3 hover:bg-yellow-500 font-thin text-xs px-4">Where We Operate in Brazil</a>
+    <a href="/whereinUAE" className="w-full py-3 hover:bg-yellow-500 font-thin text-xs px-4">Where We Operate in UAE</a>
     <a href="/operateWorld" className="w-full py-3 hover:bg-yellow-500 font-thin text-xs px-4">Where We Operate in the World</a>
     <a href="/missionvisionandvalues" className="w-full py-3 hover:bg-yellow-500 font-thin text-xs px-4">Mission, Vision, and Values</a>
   </div>

@@ -35,7 +35,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/whoWeAre" element={<AboutSection />} />
-        <Route path="/whereinBrazil" element={<WhereBrazil />} />
+        <Route path="/whereinUAE" element={<WhereBrazil />} />
         <Route path="/OperateWorld" element={<OperateWorld />} />
         <Route path="/missionvisionandvalues" element={<MissionVissionAndValues />} />
         <Route path="/airFreight" element={<AirFreightSection />} />

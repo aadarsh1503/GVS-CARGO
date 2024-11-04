@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { FaMapMarkedAlt, FaGlobeAfrica } from 'react-icons/fa';
-import MAPS from "./MAPS.png"
+import Maps from "./Maps.jpg"
 
 const Weperate = () => {
   const [modalContent, setModalContent] = useState(null); // State to track which modal is open
 
-  const handleBrazilButtonClick = () => {
-    setModalContent('brazil'); // Set content to show Brazil modal
+  const handleUAEButtonClick = () => {
+    setModalContent('UAE'); // Set content to show UAE modal
   };
 
   const handleWorldButtonClick = () => {
@@ -38,11 +38,11 @@ const Weperate = () => {
         <h2 className="text-xl lg:text-3xl lg:-ml-10 font-bold text-Graytext">Where We Operate:</h2>
 
         <button 
-          className="flex items-center justify-center ml-4 hover:text-black bg-DarkYellow text-white py-2 px-4 lg:py-4 lg:px-8 rounded-full"
-          onClick={handleBrazilButtonClick}
+          className="flex items-center justify-center lg:ml-7  hover:text-black bg-DarkYellow text-white py-2 px-4 lg:py-4 lg:px-8 rounded-full"
+          onClick={handleUAEButtonClick}
         >
           <FaMapMarkedAlt className="text-lg mr-2 " />
-          <span className='text-white'>IN BRAZIL</span>
+          <span className='text-white'>IN UAE</span>
         </button>
 
         <button 
@@ -57,15 +57,15 @@ const Weperate = () => {
       {/* Right Section */}
       <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
         <img
-          src={MAPS}
+          src={Maps}
           alt="Map or relevant image"
-          className="w-full h-auto max-w-xs lg:max-w-full lg:h-[300px]"
+          className="w-full h-auto max-w-xs lg:max-w-full lg:h-[400px]"
         />
       </div>
 
-      {/* Modal for Brazil */}
-      {modalContent === 'brazil' && (
-        <div className="fixed inset-0 flex lg:p-0 p-6 items-center justify-center font-roboto bg-black bg-opacity-50">
+      {/* Modal for UAE */}
+      {modalContent === 'UAE' && (
+        <div className="fixed inset-0 flex lg:p-0 p-6 items-center justify-center font-roboto z-10 bg-black bg-opacity-50">
           <div className="bg-white p-6 mb-10 rounded-lg shadow-lg max-w-3xl w-full relative">
             <button 
               onClick={handleCloseModal} 
@@ -73,16 +73,14 @@ const Weperate = () => {
             >
               &times;
             </button>
-            <h3 className="lg:text-2xl text-xl font-semibold mb-4">IN BRAZIL</h3>
-            <p>
-              We operate in several Brazilian capitals, offering services that meet your demands nationwide quickly, safely, and with the transparency you need.
+            <h3 className="lg:text-2xl text-xl font-semibold mb-4">IN UAE</h3>
+            <p className='mb-4'>
+              We operate in several UAE capitals, offering services that meet your demands nationwide quickly, safely, and with the transparency you need.
             </p>
-            <p className="mt-2 mb-10">
-              We operate in several Brazilian capitals, offering services that meet your demands nationwide quickly, safely, and with the transparency you need.
-            </p>
+            
             <button 
               onClick={handleCloseModal} 
-              className="absolute bottom-1 right-4 mt-10 flex items-center justify-center bg-black text-DarkYellow py-2 px-4 "
+              className="absolute bottom-1 right-4 mt-10  flex items-center justify-center bg-black text-DarkYellow py-2 px-4 "
             >
               To Close
             </button>
@@ -92,7 +90,7 @@ const Weperate = () => {
 
       {/* Modal for World */}
       {modalContent === 'world' && (
-        <div className="fixed inset-0 flex items-center lg:p-0 p-6 justify-center font-roboto bg-black bg-opacity-50">
+        <div className="fixed inset-0 flex items-center lg:p-0 p-6 justify-center font-roboto z-10 bg-black bg-opacity-50">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-3xl w-full relative">
             <button 
               onClick={handleCloseModal} 
