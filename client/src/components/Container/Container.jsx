@@ -1,27 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Slide from '../Slide/Slide';
 import BounceOne from '../BounceOne/BounceOne';
-import { useState } from 'react';
-import first from "./first.png"
-import sec from "./sec.png"
-import third from "./third.png"
+
+// Import all images
+import first from "./first.png";
+import sec from "./sec.png";
+import third from "./third.png";
+import Refer1 from "./Refer1.png";
+import Refer2 from "./Refer2.png";
+import Open1 from "./Open1.png";
+import Open2 from "./Open2.png";
+import Flat1 from "./Flat1.png";
+import Flat2 from "./Flat2.png";
+import Plataform1 from "./plataform1.png";
+import Plataform2 from "./plataform2.png";
+import Tank from "./tank.png";
 
 function Containers() {
     const [selected, setSelected] = useState('DRY BOX');
 
+    // Image data organized by container type
+    const containerImages = {
+        'DRY BOX': [first, sec, third],
+        'REEFER': [Refer1, Refer2],
+        'OPEN TOP': [Open1, Open2],
+        'FLAT RACK': [Flat1, Flat2],
+        'PLATFORM': [Plataform1, Plataform2],
+        'TANK': [Tank],
+    };
+
     return (
         <div className="font-roboto max-w-6xl mx-auto p-4 lg:p-8 bg-white">
+            {/* Container selection buttons */}
             <div className="flex flex-wrap items-center justify-start space-x-4 space-y-2 lg:space-y-0 cursor-pointer mb-4">
-                {['DRY BOX', 'REEFER', 'OPEN TOP', 'FLAT RACK', 'PLATFORM', 'TANK'].map((item) => (
+                {Object.keys(containerImages).map((item) => (
                     <div
                         key={item}
                         className={`font-bold text-xl text-black relative group p-2 rounded-md transition-colors duration-300 ${
                             selected === item ? 'border-b-2 border-black' : 'hover:bg-gray-100'
                         }`}
-                        onClick={() => {
-                            setSelected(item);
-                            document.getElementById('dry-box-photos').classList.toggle('hidden', item !== 'DRY BOX');
-                        }}
+                        onClick={() => setSelected(item)}
                     >
                         {item}
                         <div className="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -29,15 +47,22 @@ function Containers() {
                 ))}
             </div>
 
-            {/* Container to show photos when "DRY BOX" is clicked */}
-            <div id="dry-box-photos" className="hidden mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <img src={first} alt="Dry Box Photo 1" className="w-full h-auto object-cover rounded-lg shadow" />
-                <img src={sec} alt="Dry Box Photo 2" className="w-full h-auto object-cover rounded-lg shadow" />
-                <img src={third} alt="Dry Box Photo 3" className="w-full h-auto object-cover rounded-lg shadow" />
+            {/* Image grid for selected container type */}
+            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {containerImages[selected].map((imageSrc, index) => (
+                    <img
+                        key={index}
+                        src={imageSrc}
+                        alt={`${selected} Photo ${index + 1}`}
+                        className={`w-full object-fill rounded-lg shadow ${
+                            selected === 'TANK' ? 'lg:h-[400px] lg:w-[500px]  object-cover ' : 'h-auto lg:h-[400px]'
+                        }`}
+                    />
+                ))}
             </div>
 
             <BounceOne />
-            <div className='mb-10 mt-10'>
+            <div className="mb-10 mt-10">
                 <Slide />
             </div>
         </div>
