@@ -31,7 +31,7 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <ChatWidget />
+      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/whoWeAre" element={<AboutSection />} />

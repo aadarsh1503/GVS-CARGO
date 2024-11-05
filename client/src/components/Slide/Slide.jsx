@@ -4,13 +4,14 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import "./Slide.css";
 import item2 from "./item2.png";
-import i3 from "./i3.jpg";
+import i3 from "./i3.png";
 import i4 from "./i4.png";
 import i5 from "./i5.png";
+import i1 from "./i1.png";
 import i6 from "./i6.png";
 
 const Slide = () => {
-    const images = [item2, i3, i4, i5, i6];
+    const images = [i1,item2, i3, i4, i5, i6];
 
     const [isLoaded, setIsLoaded] = useState(false);
     const sliderRef = useRef(null);
@@ -39,7 +40,7 @@ const Slide = () => {
         dots: true,
         infinite: true,
         speed: 1000,
-        slidesToShow: 5,
+        slidesToShow: 6,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 25000,
