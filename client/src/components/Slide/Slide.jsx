@@ -67,17 +67,18 @@ const Slide = () => {
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 1, // Show only 1 image on screens below 480px
                 }
             },
             {
                 breakpoint: 360,
                 settings: {
-                    slidesToShow: 1,
+                    slidesToShow: 1, // Show only 1 image on screens below 360px
                 }
             }
         ]
     };
+    
 
     return (
         <section className="py-10 max-w-8xl mx-auto">

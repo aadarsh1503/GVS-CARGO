@@ -14,7 +14,7 @@ const OperateWorld = () => {
   </p>
   <img src={Maps} alt="Descriptive Alt Text" className="mx-auto lg:h-[500px] mb-6" />
   <Bounce />
-  <div className='-ml-10 lg:w-full w-56'><Slide /></div>
+  <div className='lg:-ml-10 lg:w-full w-56'><Slide /></div>
  
 </section>
  <ColorBar />
