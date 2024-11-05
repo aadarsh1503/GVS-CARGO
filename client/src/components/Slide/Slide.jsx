@@ -80,7 +80,7 @@ const Slide = () => {
     };
 
     return (
-        <section className="py-10 max-w-7xl mx-auto">
+        <section className="py-10 max-w-8xl mx-auto">
             <div className="mx-auto px-1">
                 {isLoaded ? (
                     <Slider ref={sliderRef} {...settings}>
@@ -89,8 +89,8 @@ const Slide = () => {
                                 <img
                                     src={src}
                                     alt={`Slide ${index + 1}`}
-                                    className="object-contain w-3/4 mx-auto"
-                                    style={{ maxHeight: '200px' }}
+                                    className="object-contain w-4/4 mx-auto"
+                                    style={{ maxHeight: '300px' }}
                                 />
                             </div>
                         ))}
