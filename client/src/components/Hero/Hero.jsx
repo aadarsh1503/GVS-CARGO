@@ -90,7 +90,7 @@ const Hero = () => {
       ))}
     </Slider>
   ) : (
-    <div>Loading...</div>
+    <div></div>
   )}
   
   {/* Centered Text Content */}

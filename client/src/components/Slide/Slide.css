@@ -32,4 +32,15 @@
       opacity: 1;
     }
   }
-  
+  .slide-item a {
+    display: inline-block;
+}
+
+.slide-item .slide-image {
+    transition: transform 0.3s ease; /* Smooth zoom transition */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.slide-item:hover .slide-image {
+    transform: scale(1.1); /* Zoom-in effect */
+}

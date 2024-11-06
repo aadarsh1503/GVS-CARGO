@@ -26,6 +26,7 @@ import { IconContext } from "react-icons/lib";
 import Incoterms from "./components/Incoterms/Incoterms";
 import ContactUs from "./components/ContactUs/ContactUs";
 import ChatWidget from "./components/ChatWidget/ChatWidget";
+import Slide from "./components/Slide/Slide";
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
         <Route path="/container" element={<Containers />} />
         <Route path="/incoTerms" element={<Incoterms />} />
         <Route path="/contactUs" element={<ContactUs />} />
+        <Route path="/slider" element={<Slide />} />
         
        
         {/* Optional: Add a redirect or a 404 route here if needed */}

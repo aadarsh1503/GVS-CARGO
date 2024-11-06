@@ -43,12 +43,13 @@ const AboutSection = () => {
 </div>
 
       <Bounce />
-      <div className='lg:-ml-10 lg:w-full w-56'><Slide /></div>
+    
       
       
       
      
     </section>
+    <Slide />
     <ColorBar />
     </div>
   );

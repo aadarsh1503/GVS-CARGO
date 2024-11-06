@@ -30,6 +30,7 @@ function Containers() {
     };
 
     return (
+        <div>
         <div className="font-roboto max-w-6xl mx-auto p-4 lg:p-8 bg-white">
             {/* Container selection buttons */}
             <div className="flex flex-wrap items-center justify-start space-x-4 space-y-2 lg:space-y-0 cursor-pointer mb-4">
@@ -62,9 +63,11 @@ function Containers() {
             </div>
 
             <BounceOne />
-            <div className="mb-10 mt-10">
-                <Slide />
-            </div>
+         
+                
+            
+        </div>
+        <Slide />
         </div>
     );
 }

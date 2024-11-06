@@ -46,14 +46,14 @@ const Navbar = () => {
 
       {/* Main Navbar */}
       <div className="bg-white py-6">
-  <div className="container mx-auto max-w-5xl flex flex-col lg:flex-row justify-between items-center">
+  <div className="container mx-auto max-w-4xl flex flex-col lg:flex-row justify-between items-center">
     {/* Logo */}
     <div className="mb-6 lg:mb-0">
-      <img src={GVS} alt="GVS Cargo & Logistics" className="h-36 W-56" />
+      <img src={GVS} alt="GVS Cargo & Logistics" className="h-24 W-44" />
     </div>
 
     {/* Contact Info */}
-    <div className="flex flex-col font-roboto lg:flex-row max-w-5xl mx-auto items-center space-y-4 lg:space-y-0 lg:space-x-6 text-gray-700">
+    <div className="flex flex-col font-roboto  lg:flex-row max-w-5xl mx-auto items-center space-y-4 lg:space-y-0 lg:space-x-6 text-gray-700">
       <div className="flex items-center space-x-2">
         <MdLocationOn className="text-DarkBlue text-5xl" />
         <span className='text-sm text-left'>221 Salah Al Din St -  <br /> Deira - Dubai -  <br />United Arab Emirates</span>
@@ -162,105 +162,97 @@ const Navbar = () => {
 
     {/* Mobile Navigation */}
     <div className="sm:hidden flex flex-col justify-center items-center text-center h-full mx-auto">
-  {/* Hamburger Icon */}
+  {/* Toggle Button */}
   <button
     onClick={() => setIsOpen(!isOpen)}
-    className="text-white bg-gray-800 p-2  px-32 py-5  lg:ml-0 rounded-full flex justify-center items-center focus:outline-none"
+    className="text-white bg-gray-800 p-2 px-32 py-5 rounded-full flex justify-center items-center focus:outline-none"
   >
     {isOpen ? <FaTimes /> : <FaBars />}
   </button>
 
-  {/* "Request a quote" Button (Permanently Visible) */}
-
-
-  {/* Dropdown Menu (Conditional) */}
+  {/* Sidebar Menu */}
   <div
-    className={` w-64 bg-gray-700 rounded-lg shadow-lg z-10 absolute transition-all duration-300 ease-in-out ${
-      isOpen ? 'opacity-100 max-h-screen' : 'opacity-0 max-h-0 overflow-hidden'
+    className={`fixed top-0 left-0 h-full bg-gray-800 text-white w-64 z-40 shadow-lg transition-transform duration-500 ease-in-out transform ${
+      isOpen ? 'translate-x-0' : '-translate-x-full'
     }`}
   >
-<div
-  className={` w-64 bg-gray-700 rounded-xl shadow-lg z-10 absolute  lg:mt-0 transition-all duration-300 ease-in-out ${
-    isOpen ? 'opacity-100 max-h-screen' : 'opacity-0 max-h-0 overflow-hidden'
-  }`}
->
-  <ul className="text-white">
-    {items.map((item, index) => (
-      <li
-        key={index}
-        className={` border-b border-gray-700 flex flex-col items-start justify-between px-4 py-2 ${
-          openDropdown === index ? '' : ''
-        }`}
-      >
-    {item === 'Home' ? (
-  <Link to="/" className="w-full">
+    {/* Cross Button */}
     <button
-      className={`w-full text-left flex items-center justify-between font-bold ${
-        openDropdown === index ? 'bg-yellow-500 p-2' : 'bg-transparent'
-      }`}
-      onClick={() => handleToggleDropdown(index)}
+      onClick={() => setIsOpen(false)}
+      className="absolute top-4 right-4 text-2xl text-white"
     >
-      <span>{item}</span>
+      <FaTimes />
     </button>
-  </Link>
-) : (
-  <button
-    className={`w-full text-left flex items-center justify-between ${
-      openDropdown === index ? 'bg-yellow-500 p-2' : 'bg-transparent'
-    }`}
-    onClick={() => handleToggleDropdown(index)}
-  >
-    <span>{item}</span>
-    <FaChevronDown className="text-white ml-2" />
-  </button>
-)}
 
-<div className=''>
-        {/* Dropdown menu for various sections */}
-        {item === 'Services' && openDropdown === index && (
-          <div className="flex flex-col bg-gray-700 text-left text-xs font-roboto items-start text-white  lg:w-[1200px] rounded mt-2">
-            <a href="/stuffingUnloading" className="py-3 hover:bg-yellow-500  font-thin text-xs px-1">Stuffing Unloading - GVS Cargo & Logistics</a>
-            <a href="/lcl" className="py-3 hover:bg-yellow-500  font-thin text-xs px-1">LCL - Less Than Container Loaded</a>
-            <a href="/customClearance" className="py-3 hover:bg-yellow-500  font-thin text-xs px-1">Custom Clearance</a>
-            <a href="/dgr" className="py-3 hover:bg-yellow-500  font-thin text-xs px-1">DGR-per-Dangerous perishable Products  </a>
-            <a href="/inspection" className="py-3 hover:bg-yellow-500  font-thin text-xs px-1">Inspection</a>
-            <a href="/packaging" className="py-3 hover:bg-yellow-500  font-thin text-xs px-1">Packaging</a>
-            <a href="/storage" className="py-3 hover:bg-yellow-500  font-thin text-xs px-1">Storage</a>
-            <a href="/commercial" className="py-3 hover:bg-yellow-500  font-thin text-xs px-1">Commercial and logical consultancy</a>
-            <a href="/insurance" className="py-3 hover:bg-yellow-500  font-thin text-xs px-1">International Cargo Insurance</a>
-          </div>
-        )}
+    {/* Menu Items */}
+    <ul className="mt-10 overflow-y-auto max-h-screen">
+      {items.map((item, index) => (
+        <li
+          key={index}
+          className="border-b border-gray-700 px-4 py-4"
+        >
+          {item === 'Home' ? (
+            <Link to="/" className="block w-full text-left">
+              <button
+                className="w-full text-left flex items-center justify-between font-bold"
+                onClick={() => handleToggleDropdown(index)}
+              >
+                <span>{item}</span>
+              </button>
+            </Link>
+          ) : (
+            <button
+              className="w-full text-left flex items-center justify-between font-bold"
+              onClick={() => handleToggleDropdown(index)}
+            >
+              <span>{item}</span>
+              <FaChevronDown className="text-white ml-2" />
+            </button>
+          )}
 
-        {item === 'Freights' && openDropdown === index && (
-          <div className="flex flex-col bg-gray-700 text-left items-start text-white lg:w-[700px] rounded mt-2">
-            <a href="/airFreight" className="w-full py-3 hover:bg-yellow-500 font-thin text-xs px-4">Air Freight</a>
-            <a href="/seaFreight" className="w-full py-3 hover:bg-yellow-500 font-thin text-xs px-4">Sea Freight</a>
-            <a href="/roadFreight" className="w-full py-3 hover:bg-yellow-500 font-thin text-xs px-4">Road Freight</a>
-          </div>
-        )}
+          {/* Dropdowns */}
+          {item === 'Services' && openDropdown === index && (
+            <div className="flex flex-col bg-gray-700 text-left text-xs font-roboto  items-start text-white rounded mt-2">
+              <a href="/stuffingUnloading" className="py-2 px-1 hover:bg-yellow-500 font-thin">Stuffing Unloading - GVS Cargo & Logistics</a>
+              <a href="/lcl" className="py-2 px-4 hover:bg-yellow-500 font-thin">LCL - Less Than Container Loaded</a>
+              <a href="/customClearance" className="py-3 px-4 hover:bg-yellow-500 font-thin">Custom Clearance</a>
+              <a href="/dgr" className="py-2 px-4 hover:bg-yellow-500 font-thin">DGR-per-Dangerous perishable Products</a>
+              <a href="/inspection" className="py-2 px-4 hover:bg-yellow-500 font-thin">Inspection</a>
+              <a href="/packaging" className="py-2 px-4 hover:bg-yellow-500 font-thin">Packaging</a>
+              <a href="/storage" className="py-2 px-4 hover:bg-yellow-500 font-thin">Storage</a>
+              <a href="/commercial" className="py-2 px-4 hover:bg-yellow-500 font-thin">Commercial and Logical Consultancy</a>
+              <a href="/insurance" className="py-2 px-4 hover:bg-yellow-500 font-thin">International Cargo Insurance</a>
+            </div>
+          )}
 
-{item === 'Tools' && openDropdown === index && (
-  <div className="flex flex-col bg-gray-700 text-left items-start text-white lg:w-[1200px] rounded mt-2">
-    <a href="/incoterms" className="block w-full py-3 hover:bg-yellow-500 font-thin lg:w-[1200px] text-xs px-4">IncoTerms</a>
-    <a href="/container" className="block w-full py-3 hover:bg-yellow-500 font-thin text-xs px-4">Containers</a>
-  </div>
-)}
+          {item === 'Freights' && openDropdown === index && (
+            <div className="flex flex-col bg-gray-700 text-left items-start text-xs  text-white rounded mt-2">
+              <a href="/airFreight" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">Air Freight</a>
+              <a href="/seaFreight" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">Sea Freight</a>
+              <a href="/roadFreight" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">Road Freight</a>
+            </div>
+          )}
+
+          {item === 'Tools' && openDropdown === index && (
+            <div className="flex flex-col bg-gray-700 text-left items-start text-xs  text-white rounded mt-2">
+              <a href="/incoterms" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">IncoTerms</a>
+              <a href="/container" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">Containers</a>
+            </div>
+          )}
+
+          {item === 'About Us' && openDropdown === index && (
+            <div className="flex flex-col bg-gray-700 text-left items-start text-xs text-white rounded mt-2">
+              <a href="/whoWeAre" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">Who We Are</a>
+              <a href="/whereinUAE" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">Where We Operate in UAE</a>
+              <a href="/operateWorld" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">Where We Operate in the World</a>
+              <a href="/missionvisionandvalues" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">Mission, Vision, and Values</a>
+            </div>
+          )}
+        </li>
+      ))}
+    </ul>
 
 
-{item === 'About Us' && openDropdown === index && (
-  <div className="flex flex-col bg-gray-700 text-left items-start text-white lg:w-[700px] rounded mt-2">
-    <a href="/whoWeAre" className="w-full py-3 hover:bg-yellow-500 font-thin text-xs px-4">Who We Are</a>
-    <a href="/whereinUAE" className="w-full py-3 hover:bg-yellow-500 font-thin text-xs px-4">Where We Operate in UAE</a>
-    <a href="/operateWorld" className="w-full py-3 hover:bg-yellow-500 font-thin text-xs px-4">Where We Operate in the World</a>
-    <a href="/missionvisionandvalues" className="w-full py-3 hover:bg-yellow-500 font-thin text-xs px-4">Mission, Vision, and Values</a>
-  </div>
-)}
-
-</div>
-      </li>
-    ))}
-  </ul>
-</div>
 
 
   </div>

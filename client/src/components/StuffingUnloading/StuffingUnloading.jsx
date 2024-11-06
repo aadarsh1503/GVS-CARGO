@@ -26,7 +26,7 @@ function StuffingUnloading() {
         </div>
       </div>
       <Bounce />
-      <div className='lg:-ml-10 ml-10 lg:w-full w-56'><Slide /></div>
+      <Slide />
  
         <ColorBar />
       

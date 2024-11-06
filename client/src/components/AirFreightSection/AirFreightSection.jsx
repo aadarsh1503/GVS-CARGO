@@ -25,9 +25,9 @@ function AirFreightSection() {
         </div>
       </div>
       <Bounce />
-      <div className='mb-10 mt-10'>
+     
         <Slide />
-      </div>
+      
      
         <ColorBar />
      

@@ -11,7 +11,15 @@ import i1 from "./i1.png";
 import i6 from "./i6.png";
 
 const Slide = () => {
-    const images = [i1,item2, i3, i4, i5, i6];
+    const images = [i1, item2, i3, i4, i5, i6];
+    const imageLinks = [
+        "http://www.pangea-network.com",
+        "https://www.glafamily.com/",
+        "http://www.logifem.com.tr",
+        "http://www.signaturegln.com",
+        "https://www.jctrans.com/en/",
+        "https://fiata.org/"
+    ];
 
     const [isLoaded, setIsLoaded] = useState(false);
     const sliderRef = useRef(null);
@@ -39,13 +47,13 @@ const Slide = () => {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 1000,
+        speed: 500,
         slidesToShow: 6,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 25000,
+        autoplaySpeed: 2100,
         cssEase: "linear",
-        pauseOnHover: false,
+        pauseOnHover: true,
         beforeChange: (current, next) => {
             if (sliderRef.current) {
                 sliderRef.current.slickGoTo(next);
@@ -67,42 +75,44 @@ const Slide = () => {
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 1, // Show only 1 image on screens below 480px
+                    slidesToShow: 1,
                 }
             },
             {
                 breakpoint: 360,
                 settings: {
-                    slidesToShow: 1, // Show only 1 image on screens below 360px
+                    slidesToShow: 1,
                 }
             }
         ]
     };
-    
 
     return (
-        <section className="py-10 max-w-8xl mx-auto">
-            <div className="mx-auto px-1">
-                {isLoaded ? (
-                    <Slider ref={sliderRef} {...settings}>
-                        {images.map((src, index) => (
-                            <div key={index} className="slide-item">
-                                <img
-                                    src={src}
-                                    alt={`Slide ${index + 1}`}
-                                    className="object-contain w-4/4 mx-auto"
-                                    style={{ maxHeight: '300px' }}
-                                />
-                            </div>
-                        ))}
-                    </Slider>
-                ) : (
-                    <div className="flex justify-center items-center" style={{ height: '300px' }}>
-                        <span>Loading...</span>
+       <section className="py-10 w-[300px] lg:w-full lg:max-w-7xl lg:ml-32 mx-auto">
+    <div className="w-full px-4 md:px-1">
+        {isLoaded ? (
+            <Slider ref={sliderRef} {...settings}>
+                {images.map((src, index) => (
+                    <div key={index} className="slide-item">
+                        <a href={imageLinks[index]} target="_blank" rel="noopener noreferrer" className="image-link">
+                            <img
+                                src={src}
+                                alt={`Slide ${index + 1}`}
+                                className="object-contain w-full md:w-3/4 mx-auto slide-image"
+                                style={{ maxHeight: '300px' }}
+                            />
+                        </a>
                     </div>
-                )}
+                ))}
+            </Slider>
+        ) : (
+            <div className="flex justify-center items-center" style={{ height: '300px' }}>
+                <span>Loading...</span>
             </div>
-        </section>
+        )}
+    </div>
+</section>
+
     );
 };
 
