@@ -9,17 +9,17 @@ const Footer = () => {
 
   const handleSubscribe = async () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
+  
     // Check if the email is valid
     if (!email || !emailRegex.test(email)) {
       setMessage('Please enter a valid email address.');
       return;
     }
-
+  
     // Show success message immediately when the button is clicked
     setMessage('Thank you for subscribing!');
     setEmail(''); // Clear the input field after successful submission
-
+  
     try {
       const response = await fetch('https://gvs-cargo-1.onrender.com/subscribe-newsletter', {
         method: 'POST',
@@ -28,17 +28,21 @@ const Footer = () => {
         },
         body: JSON.stringify({ email }),
       });
-
+  
       const result = await response.json();
       if (!response.ok) {
         setMessage(result.message || 'Something went wrong, please try again.');
+      } else {
+        // Set a 3-second delay to refresh the component
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
       }
     } catch (error) {
       setMessage('Error sending request. Please try again.');
       console.error(error);
     }
   };
-
   return (
     <footer className="bg-DarkBlue lg:h-[450px] text-gray-200 py-8">
       <div className="container mx-auto flex flex-col lg:flex-row max-w-7xl justify-between items-center px-4">
