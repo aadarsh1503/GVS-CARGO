@@ -6,23 +6,19 @@ import white from './white.png';
 const Footer = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  const [showMessage, setShowMessage] = useState(false);  // To show the success message
 
   const handleSubscribe = async () => {
-    if (!email) {
-      setMessage('Please enter a valid email.');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Check if the email is valid
+    if (!email || !emailRegex.test(email)) {
+      setMessage('Please enter a valid email address.');
       return;
     }
 
     // Show success message immediately when the button is clicked
     setMessage('Thank you for subscribing!');
     setEmail(''); // Clear the input field after successful submission
-    setShowMessage(true); // Show the success message
-
-    // Hide the success message after 1 second (quick feedback)
-    setTimeout(() => {
-      setShowMessage(false);
-    }, 1000); // Hide after 1 second
 
     try {
       const response = await fetch('https://gvs-cargo-1.onrender.com/subscribe-newsletter', {
@@ -49,10 +45,8 @@ const Footer = () => {
         
         {/* Left Section: Logo and Social Icons */}
         <div className="flex flex-col items-center lg:items-start mb-8 lg:mb-0">
-          {/* GVS Cargo & Logistics Logo */}
           <img src={white} alt="GVS Cargo & Logistics" className="h-56 lg:-mb-8 mb-0 rounded-xl w-56" />
 
-          {/* Social Icons */}
           <div className="flex space-x-6">
             <a href="https://www.linkedin.com/company/gvsbahrain/" target="_blank" rel="noopener noreferrer" className="bg-white p-2 rounded-full">
               <FaLinkedin className="text-DarkBlue text-3xl" />
@@ -68,47 +62,39 @@ const Footer = () => {
             </a>
           </div>
 
-          {/* Copyright */}
           <p className="mt-4 text-sm text-center lg:text-left">© 2024 GVS Cargo & Logistics. All Rights Reserved.</p>
         </div>
 
         {/* Right Section: Newsletter and Developer Credit */}
         <div className="flex flex-col items-center lg:items-end space-y-6">
-      {/* Newsletter Section */}
-      <div className="flex flex-col items-center lg:items-center mb-8">
-        <p className="text-lg mb-8">Follow the news:</p>
-        <div className="flex flex-col w-70 lg:w-96">
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="p-2 text-gray-800 w-full"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <button
-            className="bg-DarkYellow mt-2 hover:text-white text-gray-800 p-2 w-full rounded-full"
-            onClick={handleSubscribe}
-          >
-            Register
-          </button>
+          {/* Newsletter Section */}
+          <div className="flex flex-col items-center lg:items-center mb-8">
+            <p className="text-lg mb-8">Follow the news:</p>
+            <div className="flex flex-col w-70 lg:w-96">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="p-2 text-gray-800 w-full"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <button
+                className="bg-DarkYellow mt-2 hover:text-white text-gray-800 p-2 w-full rounded-full"
+                onClick={handleSubscribe}
+              >
+                Register
+              </button>
 
-          {/* Success Message below the Register button */}
-          {showMessage && (
-            <div className="bg-DarkBlue text-white py-2 px-4 mt-4 rounded-full text-center animate-bounce">
-              Successfully subscribed! 🎉
+              {message && <p className="mt-4 text-sm text-gray-300">{message}</p>}
             </div>
-          )}
+          </div>
 
-          {message && <p className="mt-4 text-sm text-gray-300">{message}</p>}
+          {/* Developer Credit */}
+          <div className="flex flex-col items-center">
+            <p className="text-sm mb-2 text-center">Developed and monitored by:</p>
+            <img src={Foot} alt="Alumiar Logo" className="h-32 w-46 rounded-xl lg:w-38" />
+          </div>
         </div>
-      </div>
-
-      {/* Developer Credit */}
-      <div className="flex flex-col items-center">
-        <p className="text-sm mb-2 text-center">Developed and monitored by:</p>
-        <img src={Foot} alt="Alumiar Logo" className="h-32 w-46 rounded-xl lg:w-38" />
-      </div>
-    </div>
       </div>
     </footer>
   );
