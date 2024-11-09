@@ -47,7 +47,7 @@ const ContactUs = () => {
     setSuccessMessage(false); // Reset success message on new submit
 
     try {
-      const response = await fetch('http://localhost:5000/send-email', {
+      const response = await fetch('https://gvs-cargo.onrender.com/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

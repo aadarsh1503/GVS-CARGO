@@ -25,7 +25,7 @@ const Footer = () => {
     }, 1000); // Hide after 1 second
 
     try {
-      const response = await fetch('http://localhost:5000/subscribe-newsletter', {
+      const response = await fetch('https://gvs-cargo.onrender.com/subscribe-newsletter', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
