@@ -74,40 +74,41 @@ const Footer = () => {
 
         {/* Right Section: Newsletter and Developer Credit */}
         <div className="flex flex-col items-center lg:items-end space-y-6">
-          {/* Newsletter Section */}
-          <div className="flex flex-col items-center lg:items-center mb-8">
-            <p className="text-lg mb-8">Follow the news:</p>
-            <div className="flex flex-col w-70 lg:w-96">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="p-2 text-gray-800 w-full"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <button
-                className="bg-DarkYellow mt-2 hover:text-white text-gray-800 p-2 w-full rounded-full"
-                onClick={handleSubscribe}
-              >
-                Register
-              </button>
-              {message && <p className="mt-4 text-sm text-gray-300">{message}</p>}
-            </div>
-          </div>
+      {/* Newsletter Section */}
+      <div className="flex flex-col items-center lg:items-center mb-8">
+        <p className="text-lg mb-8">Follow the news:</p>
+        <div className="flex flex-col w-70 lg:w-96">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            className="p-2 text-gray-800 w-full"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <button
+            className="bg-DarkYellow mt-2 hover:text-white text-gray-800 p-2 w-full rounded-full"
+            onClick={handleSubscribe}
+          >
+            Register
+          </button>
 
-          {/* Success Message (Sexy Popup) */}
+          {/* Success Message below the Register button */}
           {showMessage && (
-            <div className="absolute bg-DarkBlue text-white py-2 px-10 rounded-full text-lg transform -translate-x-1/2 left-1/2 mt-4 animate-bounce">
+            <div className="bg-DarkBlue text-white py-2 px-4 mt-4 rounded-full text-center animate-bounce">
               Successfully subscribed! 🎉
             </div>
           )}
 
-          {/* Developer Credit */}
-          <div className="flex flex-col items-center">
-            <p className="text-sm mb-2 text-center">Developed and monitored by:</p>
-            <img src={Foot} alt="Alumiar Logo" className="h-32 w-46 rounded-xl lg:w-38" />
-          </div>
+          {message && <p className="mt-4 text-sm text-gray-300">{message}</p>}
         </div>
+      </div>
+
+      {/* Developer Credit */}
+      <div className="flex flex-col items-center">
+        <p className="text-sm mb-2 text-center">Developed and monitored by:</p>
+        <img src={Foot} alt="Alumiar Logo" className="h-32 w-46 rounded-xl lg:w-38" />
+      </div>
+    </div>
       </div>
     </footer>
   );
