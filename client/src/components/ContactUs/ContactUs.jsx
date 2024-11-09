@@ -159,7 +159,7 @@ const ContactUs = () => {
             {/* Google reCAPTCHA */}
             <div className="flex my-4">
               <ReCAPTCHA
-                sitekey="6LeUkHcqAAAAAO5rwSMLFJ1WEtsSCwMuslNDGsSN"  // Replace with your actual site key
+                sitekey="6LeqpnkqAAAAAHNUm3Ey9nv2T0hmhl0Ym4L_yaTS"  // Replace with your actual site key
                 onChange={handleCaptchaChange}
               />
             </div>
