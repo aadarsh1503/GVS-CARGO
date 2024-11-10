@@ -9,16 +9,26 @@ import i4 from "./i4.png";
 import i5 from "./i5.png";
 import i1 from "./i1.png";
 import i6 from "./i6.png";
+import i7 from "./i7.png";
+import i8 from "./i8.png";
+import i9 from "./i9.png";
+import i10 from "./i10.png";
+import i11 from "./i11.png";
 
 const Slide = () => {
-    const images = [i1, item2, i3, i4, i5, i6];
+    const images = [i1, item2, i3, i4, i5, i6 ,i7,i8,i9,i10,i11];
     const imageLinks = [
         "http://www.pangea-network.com",
         "https://www.glafamily.com/",
         "http://www.logifem.com.tr",
         "http://www.signaturegln.com",
         "https://www.jctrans.com/en/",
-        "https://fiata.org/"
+        "https://fiata.org/",
+        "https://bridginglogpro.com/",
+        "https://www.gtran.net/",
+        "https://www.worldfoodcargoalliance.com",
+        "https://crisscrossconnex.co.jp",
+        "https://www.df-alliance.com/"
     ];
 
     const [isLoaded, setIsLoaded] = useState(false);

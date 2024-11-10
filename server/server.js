@@ -16,16 +16,26 @@ app.get('/', (req, res) => {
 
 // Email sending endpoint
 app.post('/send-email', async (req, res) => {
-  const { company, name, ddd, telephone, email, message } = req.body;
+  const { company, name, ddd, telephone, email, message, uniqueId } = req.body;
+
+  // Log the data received (no console here, just for reference)
+  // console.log('Received form data:', req.body);
 
   try {
-    await sendEmail({ company, name, ddd, telephone, email, message });
-    res.status(200).json({ message: 'Email sent successfully' });
+    // Send email with all the data including uniqueId
+    await sendEmail({ company, name, ddd, telephone, email, message, uniqueId });
+
+    // Send response back to the client
+    res.status(200).json({
+      message: 'Email sent successfully',
+      data: { company, name, ddd, telephone, email, message, uniqueId },
+    });
   } catch (error) {
-    console.error(error);
+    console.error('Error sending email:', error);
     res.status(500).json({ message: 'Error sending email' });
   }
 });
+
 app.post('/subscribe-newsletter', async (req, res) => {
     const { email } = req.body;
   
