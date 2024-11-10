@@ -54,7 +54,7 @@ const ContactUs = () => {
     };
 
     try {
-      await fetch('http://localhost:5000/send-email', {
+      await fetch('https://gvs-cargo.onrender.com/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formPayload),
