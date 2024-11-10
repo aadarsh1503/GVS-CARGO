@@ -5,7 +5,7 @@ import 'react-phone-input-2/lib/style.css';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import './ContactUs.css';
-import LocationSection from '../Map/Map';
+import LocationSection from '../Map/Map'; //d
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
