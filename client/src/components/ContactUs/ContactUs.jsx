@@ -5,7 +5,7 @@ import 'react-phone-input-2/lib/style.css';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import './ContactUs.css';
-import LocationSection from '../Map/Map'; //d
+import LocationSection from '../Map/Map'; //
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -54,7 +54,7 @@ const ContactUs = () => {
     };
 
     try {
-      await fetch('https://gvs-cargo.onrender.com/send-email', {
+      await fetch('https://gvs-cargo-1.onrender.com/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formPayload),
