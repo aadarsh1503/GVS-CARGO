@@ -69,7 +69,7 @@ const ContactUs = () => {
           email: '',
           message: '',
         });
-        setCountryCode('+1');
+        setCountryCode('+971');
         setRecaptchaValue(null);
         setUniqueId('');
       }, 3000);
