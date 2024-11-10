@@ -15,7 +15,7 @@ const ContactUs = () => {
     email: '',
     message: '',
   });
-  const [countryCode, setCountryCode] = useState('+1');
+  const [countryCode, setCountryCode] = useState('+971');
   const [recaptchaValue, setRecaptchaValue] = useState(null);
   const [successMessage, setSuccessMessage] = useState(false);
   const [uniqueId, setUniqueId] = useState('');
