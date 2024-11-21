@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { FaLinkedin, FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
 import Foot from './Foot.jpg';
 import white from './white.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -21,7 +23,7 @@ const Footer = () => {
     setEmail(''); // Clear the input field after successful submission
   
     try {
-      const response = await fetch('https://gvs-cargo-1.onrender.com/subscribe-newsletter', {
+      const response = await fetch('http://localhost:5000/subscribe-newsletter', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -62,7 +64,8 @@ const Footer = () => {
               <FaFacebook className="text-DarkBlue text-3xl" />
             </a>
             <a href="https://twitter.com/gvscargo" target="_blank" rel="noopener noreferrer" className="bg-white p-2 rounded-full">
-              <FaTwitter className="text-DarkBlue text-3xl" />
+            <FontAwesomeIcon icon={faXTwitter} className="text-DarkBlue text-3xl" />
+
             </a>
           </div>
 
