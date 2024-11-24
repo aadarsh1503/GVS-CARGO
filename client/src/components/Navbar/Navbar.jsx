@@ -16,6 +16,7 @@ const Navbar = () => {
     'Freights',
     'Services',
     'Tools',
+    'Email'
   ];
 
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -56,16 +57,16 @@ const Navbar = () => {
     <div className="flex flex-col font-roboto  lg:flex-row max-w-5xl mx-auto items-center space-y-4 lg:space-y-0 lg:space-x-6 text-gray-700">
       <div className="flex items-center space-x-2">
         <MdLocationOn className="text-DarkBlue text-5xl" />
-        <span className='text-sm text-left'>221 Salah Al Din St -  <br /> Deira - Dubai -  <br />United Arab Emirates</span>
+        <span className='text-sm text-left'>OFFICE 22, BLDG 661, RD 1208,  <br /> BLOCK 712 - SALMABAD,  <br />KINGDOM OF BAHRAIN</span>
       </div>
       <div className="flex items-center space-x-2">
         <FaPhoneAlt className="text-white bg-DarkBlue rounded text-4xl p-2" />
-        <span className='text-sm '>+971 45284037
+        <span className='text-sm '>+973 17491444
         </span>
       </div>
       <div className="flex items-center space-x-2">
         <FaWhatsapp className="text-white bg-DarkBlue text-4xl p-1" />
-        <span className='text-sm '>+971 554201838</span>
+        <span className='text-sm '>+973 17491444</span>
       </div>
     </div>
   </div>
@@ -77,7 +78,7 @@ const Navbar = () => {
       <div className="container max-w-6xl mx-auto flex items-center justify-between">
     {/* Desktop Navigation */}
     <ul className="hidden sm:flex  space-x-3 bg-white py-2 px-10 rounded-full">
-        {['Home', 'About Us', 'Freights', 'Services', 'Tools'].map((item) => (
+        {['Home', 'About Us', 'Freights', 'Services', 'Tools', 'Email'].map((item) => (
             <li className="relative group" key={item}>
                 {item === 'Home' ? (
                     // Link only for 'Home' item
@@ -115,7 +116,7 @@ const Navbar = () => {
         {item === 'About Us' && (
           <div className="absolute hidden group-hover:flex flex-col z-10 bg-white  text-black   lg:w-[256px] -ml-2   rounded">
            <a href="/whoWeAre" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6 text-left">Who We Are</a>
-<a href="/whereinUAE" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6">Where We Operate in UAE</a>
+<a href="/whereinUAE" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6">Where We Operate in Bahrain</a>
 <a href="/operateWorld" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6">Where We Operate in the World</a>
 <a href="/missionvisionandvalues" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6">Mission, Vision, and Values</a>
 
@@ -147,7 +148,31 @@ const Navbar = () => {
           <a href="/incoterms" className="py-4 hover:bg-YellowDark px-4 text-sm">Incoterms </a>
             <a href="/container" className="py-4 hover:bg-YellowDark px-4 text-sm">Container</a>
           </div>
+          
         )}
+{item === 'Email' && (
+  <div className="absolute hidden group-hover:flex flex-col z-10 bg-white text-black lg:w-[256px] -ml-2 rounded">
+    <a
+      href="mailto:customercare@gvscargo.com"
+      className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6 text-left"
+    >
+      Customer Care
+    </a>
+    <a
+      href="mailto:sales@gvscargo.com"
+      className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6 text-left"
+    >
+      Seller Care
+    </a>
+    <a
+      href="mailto:info@gvscargo.com"
+      className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6"
+    >
+      Business Enquiries
+    </a>
+  </div>
+)}
+
       </li>
     ))}
   </ul>
@@ -247,6 +272,14 @@ const Navbar = () => {
               <a href="/operateWorld" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">Where We Operate in the World</a>
               <a href="/missionvisionandvalues" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">Mission, Vision, and Values</a>
             </div>
+          )}
+           {item === 'Email' && openDropdown === index && (
+            <div className="flex flex-col bg-gray-700 text-left items-start text-xs  text-white rounded mt-2">
+              <a  href="mailto:customercare@gvscargo.com" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">Customer Care</a>
+              <a href="mailto:sales@gvscargo.com" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">Seller Care</a>
+              <a  href="mailto:info@gvscargo.com" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">Business Enquiries</a>
+            </div>
+
           )}
         </li>
       ))}
