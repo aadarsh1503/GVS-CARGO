@@ -57,16 +57,16 @@ const Navbar = () => {
     <div className="flex flex-col font-roboto  lg:flex-row max-w-5xl mx-auto items-center space-y-4 lg:space-y-0 lg:space-x-6 text-gray-700">
       <div className="flex items-center space-x-2">
         <MdLocationOn className="text-DarkBlue text-5xl" />
-        <span className='text-sm text-left'>OFFICE 22, BLDG 661, RD 1208,  <br /> BLOCK 712 - SALMABAD,  <br />KINGDOM OF BAHRAIN</span>
+        <span className='text-sm text-left'>221 Salah Al Din St -  <br /> Deira - Dubai -  <br />United Arab Emirates</span>
       </div>
       <div className="flex items-center space-x-2">
         <FaPhoneAlt className="text-white bg-DarkBlue rounded text-4xl p-2" />
-        <span className='text-sm '>+973 17491444
+        <span className='text-sm '>+971 45284037
         </span>
       </div>
       <div className="flex items-center space-x-2">
         <FaWhatsapp className="text-white bg-DarkBlue text-4xl p-1" />
-        <span className='text-sm '>+973 17491444</span>
+        <span className='text-sm '>+971 554201838</span>
       </div>
     </div>
   </div>
