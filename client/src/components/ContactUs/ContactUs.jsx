@@ -5,7 +5,232 @@ import 'react-phone-input-2/lib/style.css';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import './ContactUs.css';
-import LocationSection from '../Map/Map'; // Your existing Map/Location Section component
+import LocationSection from '../Map/Map';
+
+const countryList = [
+  "Afghanistan",
+  "Albania",
+  "Algeria",
+  "Andorra",
+  "Angola",
+  "Algeria",
+  "Andorra",
+  "Angola",
+  "Antigua and Barbuda",
+  "Argentina",
+  "Armenia",
+  "Australia",
+  "Austria",
+  "Azerbaijan",
+  "Bahamas",
+  "Bahrain",
+  "Bangladesh",
+  "Barbados",
+  "Belarus",
+  "Belgium",
+  "Belize",
+  "Benin",
+  "Bhutan",
+  "Bolivia",
+  "Bosnia and Herzegovina",
+  "Botswana",
+  "Brazil",
+  "Brunei",
+  "Bulgaria",
+  "Burkina Faso",
+  "Burundi",
+  "Cabo Verde",
+  "Cambodia",
+  "Cameroon",
+  "Canada",
+  "Central African Republic",
+  "Chad",
+  "Chile",
+  "China",
+  "Colombia",
+  "Comoros",
+  "Congo (Congo-Brazzaville)",
+  "Costa Rica",
+  "Croatia",
+  "Cuba",
+  "Cyprus",
+  "Czech Republic (Czechia)",
+  "Democratic Republic of the Congo",
+  "Denmark",
+  "Djibouti",
+  "Dominica",
+  "Dominican Republic",
+  "Ecuador",
+  "Egypt",
+  "El Salvador",
+  "Equatorial Guinea",
+  "Eritrea",
+  "Estonia",
+  "Ethiopia",
+  "Fiji",
+  "Finland",
+  "France",
+  "Gabon",
+  "Gambia",
+  "Georgia",
+  "Germany",
+  "Ghana",
+  "Greece",
+  "Grenada",
+  "Guatemala",
+  "Guinea",
+  "Guinea-Bissau",
+  "Guyana",
+  "Haiti",
+  "Holy See",
+  "Honduras",
+  "Hungary",
+  "Iceland",
+  "India",
+  "Indonesia",
+  "Iran",
+  "Iraq",
+  "Ireland",
+  "Israel",
+  "Italy",
+  "Jamaica",
+  "Japan",
+  "Jordan",
+  "Kazakhstan",
+  "Kenya",
+  "Kiribati",
+  "Kuwait",
+  "Kyrgyzstan",
+  "Laos",
+  "Latvia",
+  "Lebanon",
+  "Lesotho",
+  "Liberia",
+  "Libya",
+  "Liechtenstein",
+  "Lithuania",
+  "Luxembourg",
+  "Madagascar",
+  "Malawi",
+  "Malaysia",
+  "Maldives",
+  "Mali",
+  "Malta",
+  "Marshall Islands",
+  "Mauritania",
+  "Mauritius",
+  "Mexico",
+  "Micronesia",
+  "Moldova",
+  "Monaco",
+  "Mongolia",
+  "Montenegro",
+  "Morocco",
+  "Mozambique",
+  "Myanmar (formerly Burma)",
+  "Namibia",
+  "Nauru",
+  "Nepal",
+  "Netherlands",
+  "New Zealand",
+  "Nicaragua",
+  "Niger",
+  "Nigeria",
+  "North Korea",
+  "North Macedonia (formerly Macedonia)",
+  "Norway",
+  "Oman",
+  "Pakistan",
+  "Palau",
+  "Palestine State",
+  "Panama",
+  "Papua New Guinea",
+  "Paraguay",
+  "Peru",
+  "Philippines",
+  "Poland",
+  "Portugal",
+  "Qatar",
+  "Romania",
+  "Russia",
+  "Rwanda",
+  "Saint Kitts and Nevis",
+  "Saint Lucia",
+  "Saint Vincent and the Grenadines",
+  "Samoa",
+  "San Marino",
+  "Sao Tome and Principe",
+  "Saudi Arabia",
+  "Senegal",
+  "Serbia",
+  "Seychelles",
+  "Sierra Leone",
+  "Singapore",
+  "Slovakia",
+  "Slovenia",
+  "Solomon Islands",
+  "Somalia",
+  "South Africa",
+  "South Korea",
+  "South Sudan",
+  "Spain",
+  "Sri Lanka",
+  "Sudan",
+  "Suriname",
+  "Sweden",
+  "Switzerland",
+  "Syria",
+  "Tajikistan",
+  "Tanzania",
+  "Thailand",
+  "Timor-Leste",
+  "Togo",
+  "Tonga",
+  "Trinidad and Tobago",
+  "Tunisia",
+  "Turkey",
+  "Turkmenistan",
+  "Tuvalu",
+  "Uganda",
+  "Ukraine",
+  "United Arab Emirates",
+  "United Kingdom",
+  "United States of America",
+  "Uruguay",
+  "Uzbekistan",
+  "Vanuatu",
+  "Vatican City",
+  "Venezuela",
+  "Vietnam",
+  "Yemen",
+  "Zambia",
+  "Zimbabwe"
+  // Add more countries as needed
+];
+
+const cache = new Map();
+
+const fetchCitiesByCountry = async (country) => {
+  if (cache.has(country)) {
+    return cache.get(country);
+  }
+  try {
+    const response = await fetch(
+      `https://countriesnow.space/api/v0.1/countries/cities`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ country }),
+      }
+    );
+    const data = await response.json();
+    cache.set(country, data.data || []);
+    return data.data || [];
+  } catch (error) {
+    console.error('Error fetching cities:', error);
+    return [];
+  }
+};
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -14,16 +239,40 @@ const ContactUs = () => {
     telephone: '',
     email: '',
     message: '',
+    portOfLoading: '',
+    portOfLoadingCity: '',
+    portOfDischarge: '',
+    portOfDischargeCity: '',
+    commodity: '',
+    grossWeight: '',
+    weightUnit: 'kg', // Added field for weight unit
+    dimensions: '',
+    dimensionUnit: 'inch', // Existing dimension unit
+    boxesPallets: '',
+    boxPalletSize: '',
+    boxPalletUnit: 'cm', // Added field for box/pallet size unit
+    modeOfShipment: '',
+    length: '',
+    width: '',
+    height: '',
   });
-  const [countryCode, setCountryCode] = useState(''); // Default to +1
+
+  const [countryCode, setCountryCode] = useState('');
   const [recaptchaValue, setRecaptchaValue] = useState(null);
   const [successMessage, setSuccessMessage] = useState(false);
   const [uniqueId, setUniqueId] = useState('');
+  const [loadingCities, setLoadingCities] = useState([]);
+  const [dischargeCities, setDischargeCities] = useState([]);
+  const [showLoaderForLoading, setShowLoaderForLoading] = useState(false);
+  const [showSuccessForLoading, setShowSuccessForLoading] = useState(false);
+  
+  const [showLoaderForDischarge, setShowLoaderForDischarge] = useState(false);
+  const [showSuccessForDischarge, setShowSuccessForDischarge] = useState(false);
 
   useEffect(() => {
     const fetchCountryCode = async () => {
       try {
-        const response = await fetch('https://ipinfo.io/json?token=6b3f765fe8dfe5'); // ipinfo.io API with your token
+        const response = await fetch('https://ipinfo.io/json?token=6b3f765fe8dfe5');
         const data = await response.json();
         const countryDialCode = getDialCodeByCountry(data.country);
         if (countryDialCode) setCountryCode(countryDialCode);
@@ -31,18 +280,15 @@ const ContactUs = () => {
         console.error('Error fetching geolocation:', error);
       }
     };
-  
+
     fetchCountryCode();
   }, []);
-  
 
   const getDialCodeByCountry = (countryCode) => {
-    // Mapping of country codes to dial codes. Replace with a complete dataset if needed.
     const dialCodeMap = {
-
-        AD: '+376', // Andorra
-        AE: '+971', // United Arab Emirates
-        AF: '+93',  // Afghanistan
+      AD: '+376',
+      AE: '+971',
+      AF: '+93',  // Afghanistan
         AG: '+1-268', // Antigua and Barbuda
         AI: '+1-264', // Anguilla
         AL: '+355', // Albania
@@ -237,11 +483,49 @@ const ContactUs = () => {
         SH: '+290', // Saint Helena
         SI: '+386', // Slovenia
         SJ: '+47',  // Svalbard and Jan Mayen
-        SK: '+421', // Slovakia
-      
+        SK: '+421', // Slovakia
+
+
       // Add more country codes as needed
     };
-    return dialCodeMap[countryCode] || '+1'; // Fallback to +1 if country not found
+    return dialCodeMap[countryCode] || '+973';
+  };
+
+  const handleCountryChange = async (e, portType) => {
+    const selectedCountry = e.target.value;
+    setFormData((prev) => ({ ...prev, [portType]: selectedCountry }));
+  
+    if (selectedCountry) {
+      if (portType === 'portOfLoading') {
+        setShowLoaderForLoading(true);
+        setShowSuccessForLoading(false); // Reset success message for portOfLoading
+      }
+  
+      if (portType === 'portOfDischarge') {
+        setShowLoaderForDischarge(true);
+        setShowSuccessForDischarge(false); // Reset success message for portOfDischarge
+      }
+  
+      // Fetch cities based on selected country
+      const cities = await fetchCitiesByCountry(selectedCountry);
+      
+      // Set cities for corresponding port type
+      if (portType === 'portOfLoading') setLoadingCities(cities);
+      if (portType === 'portOfDischarge') setDischargeCities(cities);
+      
+      // Hide loader and show success message after 2 seconds for the corresponding port type
+      setTimeout(() => {
+        if (portType === 'portOfLoading') {
+          setShowLoaderForLoading(false);
+          setShowSuccessForLoading(true);
+        }
+  
+        if (portType === 'portOfDischarge') {
+          setShowLoaderForDischarge(false);
+          setShowSuccessForDischarge(true);
+        }
+      }, 1000); // 2 seconds delay for animation
+    }
   };
 
   const handleChange = (e) => {
@@ -275,6 +559,9 @@ const ContactUs = () => {
       ddd: countryCode,
       telephone: formData.telephone,
       uniqueId: shortId,
+      weight: `${formData.grossWeight} ${formData.weightUnit}`,
+      dimensions: `${formData.length} ${formData.dimensionUnit} × ${formData.width} ${formData.dimensionUnit} × ${formData.height} ${formData.dimensionUnit}`,
+      boxPalletSize: `${formData.boxPalletSize} ${formData.boxPalletUnit}`,   
     };
   
     try {
@@ -284,25 +571,34 @@ const ContactUs = () => {
         body: JSON.stringify(formPayload),
       });
   
-      // Reset everything after 3 seconds to give user feedback
       setTimeout(() => {
         setSuccessMessage(false);
-  
-        // Reset form data to initial state
         setFormData({
           company: '',
           name: '',
           telephone: '',
           email: '',
           message: '',
+          portOfLoading: '',
+          portOfLoadingCity: '',
+          portOfDischarge: '',
+          portOfDischargeCity: '',
+          commodity: '',
+          grossWeight: '',
+          weightUnit: 'kg', // Resetting weight unit
+          dimensions: '',
+          dimensionUnit: 'inch', // Resetting dimension unit
+          boxesPallets: '',
+          boxPalletSize: '',
+          boxPalletUnit: 'cm', // Resetting box/pallet size unit
+          modeOfShipment: '',
+          length: '',
+          width: '',
+          height: '',
         });
-  
-        // Don't reset country code here, keep it as fetched from IP
-        setRecaptchaValue(null); // Reset recaptcha
-        setUniqueId(''); // Reset unique ID
-  
-        // This will trigger a full reset of the component state
-        e.target.reset(); // Reset form fields as well
+        setRecaptchaValue(null);
+        setUniqueId('');
+        e.target.reset();
       }, 3000);
   
     } catch (error) {
@@ -314,101 +610,374 @@ const ContactUs = () => {
   
 
   return (
-    <div className="max-w-md mx-auto mt-12">
-      {successMessage ? (
-        <div className="success-message flex items-center bg-DarkBlue text-white p-4 rounded-lg shadow-lg">
-          <AiOutlineCheckCircle className="checkmark text-5xl mr-4 animate-pulse" />
-          <span className="text-lg font-semibold">
-            Form submitted successfully! We'll get in touch with you shortly. Your reference ID is: {uniqueId}
-          </span>
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit} className="bg-white p-6 rounded space-y-4">
-          <h2 className="text-2xl font-semibold text-left">Fill in the required fields*</h2>
-
-          <input
-            type="text"
-            name="company"
-            value={formData.company}
-            onChange={handleChange}
-            placeholder="Company *"
-            className="w-full p-2 border border-gray-300 rounded focus:outline-none"
-            required
-          />
-
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Name *"
-            className="w-full p-2 border border-gray-300 rounded focus:outline-none"
-            required
-          />
-
-          <div className="flex mb-4 space-x-2">
-            <div className="w-1/3">
-              <PhoneInput
-                country={'us'}
-                value={countryCode}
-                onChange={(value) => setCountryCode(value || '+1')}
-                placeholder="Select Country Code"
-                inputStyle={{
-                  width: '100%',
-                  height: '40px',
-                  border: '1px solid #D1D5DB',
-                  color: '#4B5563',
-                }}
-              />
-            </div>
-            <div className="w-2/3">
-              <input
-                type="text"
-                name="telephone"
-                value={formData.telephone}
-                onChange={handleChange}
-                placeholder="Phone Number *"
-                className="w-full border border-gray-300 rounded px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                required
-              />
-            </div>
-          </div>
-
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Email *"
-            className="w-full p-2 border border-gray-300 rounded focus:outline-none"
-            required
-          />
-
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            placeholder="Message *"
-            className="w-full p-2 border border-gray-300 rounded focus:outline-none"
-            rows="4"
-            required
-          />
-
-          <ReCAPTCHA
-            sitekey="6LeqpnkqAAAAAHNUm3Ey9nv2T0hmhl0Ym4L_yaTS"
-            onChange={(value) => setRecaptchaValue(value)}
-          />
-
-          <button type="submit" className="w-full py-2 text-white bg-yellow-500 rounded font-semibold hover:bg-yellow-600">
-            Send
-          </button>
-        </form>
-      )}
-
-      <div className="lg:-ml-48 -ml-32">
-        <LocationSection />
+    <div className="lg:max-w-2xl max-w-md font-roboto mx-auto mt-12">
+    {successMessage ? (
+      <div className="success-message flex items-center bg-DarkBlue text-white p-4 rounded-lg shadow-lg">
+        <AiOutlineCheckCircle className="checkmark text-5xl mr-4 animate-pulse" />
+        <span className="text-lg font-semibold">
+          Form submitted successfully! We'll get in touch with you shortly. Your reference ID is: {uniqueId}
+        </span>
       </div>
+    ) : (
+      <form onSubmit={handleSubmit} className="bg-white p-6 rounded space-y-4">
+        <h2 className="text-2xl font-semibold text-left">Fill in the required fields*</h2>
+
+        {/* Company Name */}
+        <input
+          type="text"
+          name="company"
+          value={formData.company}
+          onChange={handleChange}
+          placeholder="Company *"
+          className="w-full p-2 border border-gray-300 rounded focus:outline-none"
+          required
+        />
+
+        {/* Name */}
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          placeholder="Name *"
+          className="w-full p-2 border border-gray-300 rounded focus:outline-none"
+          required
+        />
+
+        {/* Phone and Country Code */}
+        <div className="flex mb-4 space-x-2">
+          <div className="w-1/3">
+            <PhoneInput
+              country={'bh'}
+              value={countryCode}
+              onChange={(value) => setCountryCode(value || '+973')}
+              placeholder="Select Country Code"
+              inputStyle={{ width: '100%', height: '40px', border: '1px solid #D1D5DB', color: '#4B5563' }}
+              required
+            />
+          </div>
+          <div className="w-2/3">
+            <input
+              type="text"
+              name="telephone"
+              value={formData.telephone}
+              onChange={handleChange}
+              placeholder="Phone Number *"
+              className="w-full border border-gray-300 rounded px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              required
+            />
+          </div>
+        </div>
+        <input 
+          type="email" 
+          name="email" 
+          value={formData.email} 
+          onChange={handleChange} 
+          placeholder="Email *" 
+          className="w-full p-2 border border-gray-300 rounded focus:outline-none" 
+          required 
+        />
+
+        {/* Port of Loading */}
+        <div className="space-y-4">
+  {/* Port of Loading Dropdown */}
+  <div className="relative">
+    <select
+      name="portOfLoading"
+      value={formData.portOfLoading}
+      onChange={(e) => handleCountryChange(e, 'portOfLoading')}
+      className="w-full p-2 border font-roboto border-gray-300 rounded focus:outline-none"
+      required
+    >
+      <option value="" disabled>
+        Select Country For Port of Loading *
+      </option>
+      {countryList.map((country, index) => (
+        <option key={index} value={country}>
+          {country}
+        </option>
+      ))}
+    </select>
+
+    {showLoaderForLoading ? (
+      <div className="absolute top-3 right-4">
+        <div className="animate-spin border-2 border-t-transparent border-green-500 rounded-full w-5 h-5"></div>
+      </div>
+    ) : showSuccessForLoading && (
+      <div className="absolute top-3 right-4 text-green-500 flex items-center gap-1">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M5 13l4 4L19 7"
+          />
+        </svg>
+        <span className="text-sm">Looks good</span>
+      </div>
+    )}
+  </div>
+
+    {/* Port of Loading City Dropdown */}
+    <select
+    name="portOfLoadingCity"
+    value={formData.portOfLoadingCity}
+    onChange={handleChange}
+    className="w-full p-2 border border-gray-300 rounded focus:outline-none"
+    required
+  >
+    <option value="" disabled>
+      Select City for Port of Loading *
+    </option>
+    {loadingCities.map((city, index) => (
+      <option key={index} value={city}>
+        {city}
+      </option>
+    ))}
+  </select>
+</div>
+      {/* Port of Discharge */}
+     <div className="space-y-4">
+     <div className="relative">
+    <select
+      name="portOfDischarge"
+      value={formData.portOfDischarge}
+      onChange={(e) => handleCountryChange(e, 'portOfDischarge')}
+      className="w-full p-2 border font-roboto border-gray-300 rounded focus:outline-none"
+      required
+    >
+      <option value="" disabled>
+        Select Country For Port of Discharge *
+      </option>
+      {countryList.map((country, index) => (
+        <option key={index} value={country}>
+          {country}
+        </option>
+      ))}
+    </select>
+
+    {showLoaderForDischarge ? (
+      <div className="absolute top-3 right-4">
+        <div className="animate-spin border-2 border-t-transparent border-green-500 rounded-full w-5 h-5"></div>
+      </div>
+    ) : showSuccessForDischarge && (
+      <div className="absolute top-3 right-4 text-green-500 flex items-center gap-1">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M5 13l4 4L19 7"
+          />
+        </svg>
+        <span className="text-sm">Looks good</span>
+      </div>
+    )}
+  </div>
+   
+  <select
+    name="portOfDischargeCity"
+    value={formData.portOfDischargeCity}
+    onChange={handleChange}
+    className="w-full p-2 border border-gray-300 rounded focus:outline-none"
+    required
+  >
+    <option value="" disabled>
+      Select City for Port of Discharge *
+    </option>
+    {dischargeCities.map((city, index) => (
+      <option key={index} value={city}>
+        {city}
+      </option>
+    ))}
+  </select>
+   </div>
+   
+  
+        <input 
+          type="text" 
+          name="commodity" 
+          value={formData.commodity} 
+          onChange={handleChange} 
+          placeholder="Commodity" 
+          className="w-full p-2 border border-gray-300 rounded focus:outline-none" 
+          required 
+        />
+  
+  <div className="space-y-2">
+  <div className="flex space-x-4">
+    <input
+      type="text"
+      name="grossWeight"
+      value={formData.grossWeight}
+      onChange={handleChange}
+      placeholder="Gross Weight"
+      className="w-2/3 p-2 border border-gray-300 rounded focus:outline-none"
+      required
+    />
+    <select
+      name="weightUnit"
+      value={formData.weightUnit}
+      onChange={handleChange}
+      className="w-1/3 p-2 border border-gray-300 rounded focus:outline-none"
+      required
+    >
+      <option value="kg">Kilograms (kg)</option>
+      <option value="tonnes">Tonnes (metric tons)</option>
+      <option value="tons">Tons (US tons)</option>
+      <option value="lbs">Pounds (lbs)</option>
+    </select>
+  </div>
+</div>
+  
+        {/* Dimensions in One Row */}
+        <div className="space-y-4">
+          <h3 className="text-lg font-semibold text-gray-700">Dimensions</h3>
+          <div className="flex items-center space-x-4">
+            {/* Length Input */}
+            <input
+              type="text"
+              name="length"
+              value={formData.length}
+              onChange={handleChange}
+              placeholder="Length"
+              className="w-20 p-2 border border-gray-300 rounded focus:outline-none"
+              required
+            />
+            {/* Width Input */}
+            <input
+              type="text"
+              name="width"
+              value={formData.width}
+              onChange={handleChange}
+              placeholder="Width"
+              className="w-20 p-2 border border-gray-300 rounded focus:outline-none"
+              required
+            />
+            {/* Height Input */}
+            <input
+              type="text"
+              name="height"
+              value={formData.height}
+              onChange={handleChange}
+              placeholder="Height"
+              className="w-20 p-2 border border-gray-300 rounded focus:outline-none"
+              required
+            />
+            {/* Unit Dropdown */}
+            <select
+              name="dimensionUnit"
+              value={formData.dimensionUnit}
+              onChange={handleChange}
+              className="p-2 border hidden lg:block border-gray-300 rounded focus:outline-none text-gray-700"
+              required
+            >
+              <option value="inch">Inch</option>
+              <option value="cm">Centimeter</option>
+            </select>
+          </div>
+        </div>
+        <select
+              name="dimensionUnit"
+              value={formData.dimensionUnit}
+              onChange={handleChange}
+              className="p-1 border lg:hidden sm:block border-gray-300 rounded focus:outline-none text-gray-700"
+              required
+            >
+              <option value="inch">Inch</option>
+              <option value="cm">Centimeter</option>
+            </select>
+  
+        <input 
+          type="text" 
+          name="boxesPallets" 
+          value={formData.boxesPallets} 
+          onChange={handleChange} 
+          placeholder="Number of Boxes/Pallets" 
+          className="w-full p-2 border border-gray-300 rounded focus:outline-none" 
+          required 
+        />
+  
+  <div className="space-y-2">
+  <div className="flex space-x-4">
+    <input
+      type="text"
+      name="boxPalletSize"
+      value={formData.boxPalletSize}
+      onChange={handleChange}
+      placeholder="Size of Each Box/Pallet"
+      className="w-2/3 p-2 border border-gray-300 rounded focus:outline-none"
+      required
+    />
+    <select
+      name="boxPalletUnit"
+      value={formData.boxPalletUnit}
+      onChange={handleChange}
+      className="w-1/3 p-2 border border-gray-300 rounded focus:outline-none"
+      required
+    >
+      <option value="cm">Centimeters </option>
+      <option value="inch">Inches</option>
+      <option value="m">Meters </option>
+      <option value="ft">Feet</option>
+    </select>
+  </div>
+</div>
+  
+        {/* Mode of Shipment: Dropdown */}
+        <select
+          name="modeOfShipment"
+          value={formData.modeOfShipment}
+          onChange={handleChange}
+          className="w-full p-2 border border-gray-300 rounded focus:outline-none text-gray-700"
+          required
+        >
+          <option value="" disabled>
+            Mode of Shipment (Select One) *
+          </option>
+          <option value="Commercial">Commercial</option>
+          <option value="Personal">Personal</option>
+        </select>
+  
+        <textarea 
+          name="message" 
+          value={formData.message} 
+          onChange={handleChange} 
+          placeholder="Message *" 
+          className="w-full p-2 border border-gray-300 rounded focus:outline-none" 
+          rows="4" 
+          required 
+        />
+  
+        <ReCAPTCHA sitekey="6LeqpnkqAAAAAHNUm3Ey9nv2T0hmhl0Ym4L_yaTS" onChange={(value) => setRecaptchaValue(value)} required />
+  
+        <button 
+          type="submit" 
+          className="w-full py-2 text-white bg-yellow-500 rounded font-semibold hover:bg-yellow-600"
+        >
+          Send
+        </button>
+      </form>
+    )}
+  
+    <div className="lg:-ml-48 -ml-32">
+      <LocationSection />
     </div>
+  </div>
+  
+
   );
 };
 
