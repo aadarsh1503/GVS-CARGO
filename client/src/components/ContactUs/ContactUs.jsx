@@ -214,12 +214,53 @@ const fetchCitiesByCountry = async (country) => {
   if (cache.has(country)) {
     return cache.get(country);
   }
+
+  // Predefined list of cities/ports for Bahrain
+  const bahrainCities = [
+    "Khalifa Bin Salman Port (KBSP) (Hidd)",
+    "Mina Salman Port (Manama)",
+    "Sitra Industrial Port (Sitra)",
+    "Bahrain International Airport",
+  ];
+
+  // Predefined list of cities/ports for UAE
+  const uaePorts = [
+    "Jebel Ali Port (Dubai)",
+    "Port Rashid (Dubai)",
+    "Mina Zayed Port (Abu Dhabi)",
+    "Khalifa Port (Abu Dhabi)",
+    "Sharjah Port (Khalid Port) (Sharjah)",
+    "Hamriyah Port (Sharjah)",
+    "Fujairah Port (Fujairah)",
+    "Port of Khor Fakkan (Sharjah)",
+    "Ruwais Port (Abu Dhabi)",
+    "Umm Al Quwain Port (Umm Al Quwain)",
+    "Ajman Port (Ajman)",
+    "Dubai International Airport (DXB)",
+    "Al Maktoum International Airport (DWC)",
+    "Abu Dhabi International Airport (AUH)",
+    "Sharjah International Airport (SHJ)",
+    "Ras Al Khaimah International Airport (RKT)",
+  ];
+
+  // Return predefined lists for Bahrain and UAE
+  if (country === "Bahrain") {
+    cache.set(country, bahrainCities);
+    return bahrainCities;
+  }
+
+  if (country === "United Arab Emirates") {
+    cache.set(country, uaePorts);
+    return uaePorts;
+  }
+
+  // Fetch cities for other countries
   try {
     const response = await fetch(
       `https://countriesnow.space/api/v0.1/countries/cities`,
       {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ country }),
       }
     );
@@ -227,10 +268,11 @@ const fetchCitiesByCountry = async (country) => {
     cache.set(country, data.data || []);
     return data.data || [];
   } catch (error) {
-    console.error('Error fetching cities:', error);
+    console.error("Error fetching cities:", error);
     return [];
   }
 };
+
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -268,6 +310,10 @@ const ContactUs = () => {
   
   const [showLoaderForDischarge, setShowLoaderForDischarge] = useState(false);
   const [showSuccessForDischarge, setShowSuccessForDischarge] = useState(false);
+  const [showLoaderForCity, setShowLoaderForCity] = useState(false);
+  const [showSuccessForCity, setShowSuccessForCity] = useState(false);
+  const [showLoaderForDischargeCity, setShowLoaderForDischargeCity] = useState(false);
+  const [showSuccessForDischargeCity, setShowSuccessForDischargeCity] = useState(false);
 
   useEffect(() => {
     const fetchCountryCode = async () => {
@@ -527,6 +573,35 @@ const ContactUs = () => {
       }, 1000); // 2 seconds delay for animation
     }
   };
+  const handleDischargeCityChange = (e) => {
+    const selectedCity = e.target.value;
+    setFormData((prev) => ({ ...prev, portOfDischargeCity: selectedCity }));
+  
+    setShowLoaderForDischargeCity(true);
+    setShowSuccessForDischargeCity(false);
+  
+    // Simulating API call
+    setTimeout(() => {
+      setShowLoaderForDischargeCity(false);
+      setShowSuccessForDischargeCity(true);
+    }, 1000); // Adjust the delay as needed
+  };
+  const handleCityChange = (e) => {
+    const value = e.target.value;
+
+    // Update form data
+    setFormData((prevData) => ({ ...prevData, portOfLoadingCity: value }));
+
+    // Show loader for city selection
+    setShowLoaderForCity(true);
+    setShowSuccessForCity(false);
+
+    // Simulate API call
+    setTimeout(() => {
+      setShowLoaderForCity(false);
+      setShowSuccessForCity(true);
+    }, 2000); // Simulated delay of 2 seconds
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -680,71 +755,99 @@ const ContactUs = () => {
 
         {/* Port of Loading */}
         <div className="space-y-4">
-  {/* Port of Loading Dropdown */}
-  <div className="relative">
-    <select
-      name="portOfLoading"
-      value={formData.portOfLoading}
-      onChange={(e) => handleCountryChange(e, 'portOfLoading')}
-      className="w-full p-2 border font-roboto border-gray-300 rounded focus:outline-none"
-      required
-    >
-      <option value="" disabled>
-        Select Country For Port of Loading *
-      </option>
-      {countryList.map((country, index) => (
-        <option key={index} value={country}>
-          {country}
-        </option>
-      ))}
-    </select>
-
-    {showLoaderForLoading ? (
-      <div className="absolute top-3 right-4">
-        <div className="animate-spin border-2 border-t-transparent border-green-500 rounded-full w-5 h-5"></div>
-      </div>
-    ) : showSuccessForLoading && (
-      <div className="absolute top-3 right-4 text-green-500 flex items-center gap-1">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
+      {/* Port of Loading Dropdown */}
+      <div className="relative">
+        <select
+          name="portOfLoading"
+          value={formData.portOfLoading}
+          onChange={(e) => handleCountryChange(e, "portOfLoading")}
+          className="w-full p-2 border font-roboto border-gray-300 rounded focus:outline-none"
+          required
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M5 13l4 4L19 7"
-          />
-        </svg>
-        <span className="text-sm">Looks good</span>
-      </div>
-    )}
-  </div>
+          <option value="" disabled>
+            Select Country For Port of Loading *
+          </option>
+          {countryList.map((country, index) => (
+            <option key={index} value={country}>
+              {country}
+            </option>
+          ))}
+        </select>
 
-    {/* Port of Loading City Dropdown */}
-    <select
-    name="portOfLoadingCity"
-    value={formData.portOfLoadingCity}
-    onChange={handleChange}
-    className="w-full p-2 border border-gray-300 rounded focus:outline-none"
-    required
-  >
-    <option value="" disabled>
-      Select City for Port of Loading *
-    </option>
-    {loadingCities.map((city, index) => (
-      <option key={index} value={city}>
-        {city}
-      </option>
-    ))}
-  </select>
-</div>
+        {showLoaderForLoading ? (
+          <div className="absolute top-3 right-4">
+            <div className="animate-spin border-2 border-t-transparent border-green-500 rounded-full w-5 h-5"></div>
+          </div>
+        ) : showSuccessForLoading && (
+          <div className="absolute top-3 right-4 text-green-500 flex items-center gap-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <span className="text-sm">Looks good</span>
+          </div>
+        )}
+      </div>
+
+      {/* Port of Loading City Dropdown */}
+      <div className="relative">
+        <select
+          name="portOfLoadingCity"
+          value={formData.portOfLoadingCity}
+          onChange={handleCityChange}
+          className="w-full p-2 border border-gray-300 rounded focus:outline-none"
+          required
+        >
+          <option value="" disabled>
+            Select City for Port of Loading *
+          </option>
+          {loadingCities.map((city, index) => (
+            <option key={index} value={city}>
+              {city}
+            </option>
+          ))}
+        </select>
+
+        {showLoaderForCity ? (
+          <div className="absolute top-3 right-4">
+            <div className="animate-spin border-2 border-t-transparent border-green-500 rounded-full w-5 h-5"></div>
+          </div>
+        ) : showSuccessForCity && (
+          <div className="absolute top-3 right-4 text-green-500 flex items-center gap-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <span className="text-sm">Looks good</span>
+          </div>
+        )}
+      </div>
+    </div>
+
       {/* Port of Discharge */}
-     <div className="space-y-4">
-     <div className="relative">
+      <div className="space-y-4">
+  {/* Port of Discharge Country Dropdown */}
+  <div className="relative">
     <select
       name="portOfDischarge"
       value={formData.portOfDischarge}
@@ -786,24 +889,51 @@ const ContactUs = () => {
       </div>
     )}
   </div>
-   
-  <select
-    name="portOfDischargeCity"
-    value={formData.portOfDischargeCity}
-    onChange={handleChange}
-    className="w-full p-2 border border-gray-300 rounded focus:outline-none"
-    required
-  >
-    <option value="" disabled>
-      Select City for Port of Discharge *
-    </option>
-    {dischargeCities.map((city, index) => (
-      <option key={index} value={city}>
-        {city}
+
+  {/* Port of Discharge City Dropdown */}
+  <div className="relative">
+    <select
+      name="portOfDischargeCity"
+      value={formData.portOfDischargeCity}
+      onChange={handleDischargeCityChange}
+      className="w-full p-2 border border-gray-300 rounded focus:outline-none"
+      required
+    >
+      <option value="" disabled>
+        Select City for Port of Discharge *
       </option>
-    ))}
-  </select>
-   </div>
+      {dischargeCities.map((city, index) => (
+        <option key={index} value={city}>
+          {city}
+        </option>
+      ))}
+    </select>
+
+    {showLoaderForDischargeCity ? (
+      <div className="absolute top-3 right-4">
+        <div className="animate-spin border-2 border-t-transparent border-green-500 rounded-full w-5 h-5"></div>
+      </div>
+    ) : showSuccessForDischargeCity && (
+      <div className="absolute top-3 right-4 text-green-500 flex items-center gap-1">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M5 13l4 4L19 7"
+          />
+        </svg>
+        <span className="text-sm">Looks good</span>
+      </div>
+    )}
+  </div>
+</div>
    
   
         <input 
