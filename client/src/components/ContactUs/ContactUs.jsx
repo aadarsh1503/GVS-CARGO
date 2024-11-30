@@ -636,7 +636,7 @@ const ContactUs = () => {
       uniqueId: shortId,
       weight: `${formData.grossWeight} ${formData.weightUnit}`,
       dimensions: `${formData.length} ${formData.dimensionUnit} × ${formData.width} ${formData.dimensionUnit} × ${formData.height} ${formData.dimensionUnit}`,
-      boxPalletSize: `${formData.boxPalletSize} ${formData.boxPalletUnit}`,   
+      boxPalletSize: `${formData.boxPalletSize} ${formData.boxPalletUnit}`,
     };
   
     try {
@@ -646,8 +646,11 @@ const ContactUs = () => {
         body: JSON.stringify(formPayload),
       });
   
+      // Reset all form-related states after submission
       setTimeout(() => {
         setSuccessMessage(false);
+  
+        // Reset form data
         setFormData({
           company: '',
           name: '',
@@ -671,11 +674,24 @@ const ContactUs = () => {
           width: '',
           height: '',
         });
+  
+        // Reset other states
         setRecaptchaValue(null);
         setUniqueId('');
-        e.target.reset();
-      }, 3000);
+        setLoadingCities([]);
+        setDischargeCities([]);
+        setShowLoaderForLoading(false);
+        setShowSuccessForLoading(false);
+        setShowLoaderForDischarge(false);
+        setShowSuccessForDischarge(false);
+        setShowLoaderForCity(false);
+        setShowSuccessForCity(false);
+        setShowLoaderForDischargeCity(false);
+        setShowSuccessForDischargeCity(false);
   
+        // Reset form inputs
+        e.target.reset();
+      }, 3000); // 3 seconds delay for success message
     } catch (error) {
       console.error('Error:', error);
       alert('Error submitting form');
