@@ -61,7 +61,7 @@ const Navbar = () => {
       </div>
       <div className="flex items-center space-x-2">
         <FaPhoneAlt className="text-white bg-DarkBlue rounded text-4xl p-2" />
-        <span className='text-sm '>+971 45284037
+        <span className='text-sm '>+971 45284037(Ext. 202)
         </span>
       </div>
       <div className="flex items-center space-x-2">
