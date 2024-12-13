@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaPhoneAlt, FaWhatsapp, FaGlobe } from 'react-icons/fa';
 import { MdLocationOn } from 'react-icons/md';
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
 import { FaChevronDown, FaTimes ,FaBars  } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import GVS from "./GVS.png"
@@ -9,23 +9,60 @@ import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 
 
 const Navbar = () => {
-  
-  const items = [
-    'Home',
-    'About Us',
-    'Freights',
-    'Services',
-    'Tools',
-    'Email'
-  ];
-
+  const items = ['Home', 'About Us', 'Freights', 'Services', 'Tools', 'Email'];
   const [openDropdown, setOpenDropdown] = useState(null);
 
   const handleToggleDropdown = (index) => {
     setOpenDropdown(openDropdown === index ? null : index);
   };
-    const [isOpen, setIsOpen] = useState(false);
-    const [selectedItem, setSelectedItem] = useState('Home');
+
+  const [selectedItem, setSelectedItem] = useState();
+  const [isOpen, setIsOpen] = useState(false);
+  useEffect(() => {
+    // Set the selected item based on the current path
+    const path = window.location.pathname;
+    if (path.includes('whoWeAre')) {
+      setSelectedItem('About Us');
+    } else if (path.includes('testimonials')) {
+      setSelectedItem('About Us');
+    } else if (path.includes('whereinBahrain&GCC')) {
+      setSelectedItem('About Us');
+    } else if (path.includes('operateWorld')) {
+      setSelectedItem('About Us');
+    } else if (path.includes('airFreight')) {
+      setSelectedItem('Freights');
+    } else if (path.includes('seaFreight')) {
+      setSelectedItem('Freights');
+    } else if (path.includes('roadFreight')) {
+      setSelectedItem('Freights');
+    } else if (path.includes('stuffingUnloading')) {
+      setSelectedItem('Services');
+    } else if (path.includes('lcl')) {
+      setSelectedItem('Services');
+    } else if (path.includes('fcl')) {
+      setSelectedItem('Services');
+    } else if (path.includes('customClearance')) {
+      setSelectedItem('Services');
+    } else if (path.includes('dgr')) {
+      setSelectedItem('Services');
+    } else if (path.includes('inspection')) {
+      setSelectedItem('Services');
+    } else if (path.includes('packaging')) {
+      setSelectedItem('Services');
+    } else if (path.includes('storage')) {
+      setSelectedItem('Services');
+    } else if (path.includes('commercial')) {
+      setSelectedItem('Services');
+    } else if (path.includes('insurance')) {
+      setSelectedItem('Services');
+    } else if (path.includes('incoterms')) {
+      setSelectedItem('Tools');
+    } else if (path.includes('container')) {
+      setSelectedItem('Tools');
+    } else {
+      setSelectedItem('Home');
+    }
+  }, []); // Empty dependency array to run only once on mount
 
 
     
@@ -61,7 +98,7 @@ const Navbar = () => {
       </div>
       <div className="flex items-center space-x-2">
         <FaPhoneAlt className="text-white bg-DarkBlue rounded text-4xl p-2" />
-        <span className='text-sm '>+971 45284037(Ext. 202)
+        <span className='text-sm '>+971 45284037
         </span>
       </div>
       <div className="flex items-center space-x-2">
@@ -77,51 +114,59 @@ const Navbar = () => {
       <nav className="bg-DarkBlue font-roboto py-7">
       <div className="container max-w-6xl mx-auto flex items-center justify-between">
     {/* Desktop Navigation */}
-    <ul className="hidden sm:flex  space-x-3 bg-white py-2 px-10 rounded-full">
-        {['Home', 'About Us', 'Freights', 'Services', 'Tools', 'Email'].map((item) => (
-            <li className="relative group" key={item}>
+    <ul className="hidden sm:flex space-x-3 bg-white py-2 px-10 rounded-full">
+            {items.map((item) => (
+              <li className="relative group" key={item}>
                 {item === 'Home' ? (
-                    // Link only for 'Home' item
-                    <a href="/">
-                        <button
-                            className={`text-black py-2 px-6 flex items-center min-w-[100px] relative`}
-                            onClick={() => setSelectedItem(item)}
-                        >
-                            {item}
-                            <span
-                                className={`absolute bottom-0 font-roboto left-0 w-full h-1 bg-DarkBlue transition-opacity duration-300 ${
-                                    selectedItem === item || 'group-hover:opacity-100 opacity-0'
-                                }`}
-                            ></span>
-                        </button>
-                    </a>
-                ) : (
-                    // No link for other items
+                  // Link only for 'Home' item
+                  <a href="/">
                     <button
-                        className={`text-black font-roboto py-2 px-4 flex items-center min-w-[100px] relative`}
-                        onClick={() => setSelectedItem(item)}
+                      className={`text-black py-2 px-6 flex items-center min-w-[100px] relative`}
+                      onClick={() => setSelectedItem(item)}
                     >
-                        {item}
-                        <FaChevronDown className="ml-2" />
-                        <span
-                            className={`absolute bottom-0 left-0 w-full h-1 bg-DarkBlue transition-opacity duration-300 ${
-                                selectedItem === item || 'group-hover:opacity-100 opacity-0'
-                            }`}
-                        ></span>
+                      {item}
+                      <span
+                        className={`absolute bottom-0 font-roboto left-0 w-full h-1 bg-DarkBlue transition-opacity duration-300 ${
+                          selectedItem === item || 'group-hover:opacity-100 opacity-0'
+                        }`}
+                      ></span>
                     </button>
+                  </a>
+                ) : (
+                  // No link for other items
+                  <button
+                    className={`text-black font-roboto py-2 px-4 flex items-center min-w-[100px] relative`}
+                    onClick={() => setSelectedItem(item)}
+                  >
+                    {item}
+                    <FaChevronDown className="ml-2" />
+                    <span
+                      className={`absolute bottom-0 left-0 w-full h-1 bg-DarkBlue transition-opacity duration-300 ${
+                        selectedItem === item || 'group-hover:opacity-100 opacity-0'
+                      }`}
+                    ></span>
+                  </button>
                 )}
-          
 
-        {/* Dropdown Options based on each item */}
-        {item === 'About Us' && (
-          <div className="absolute hidden group-hover:flex flex-col z-10 bg-white  text-black   lg:w-[256px] -ml-2   rounded">
-           <a href="/whoWeAre" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6 text-left">Who We Are</a>
-           <a href="/testimonials" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6">Our Testimonials</a>
-<a href="/whereinUAE" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6">Where We Operate in Bahrain</a>
-<a href="/operateWorld" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6">Where We Operate in the World</a>
-<a href="/missionvisionandvalues" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6">Mission, Vision, and Values</a>
-
-          </div>
+                {/* Dropdown Options based on each item */}
+                {item === 'About Us' && (
+                  <div className="absolute hidden group-hover:flex flex-col z-10 bg-white text-black lg:w-[256px] -ml-2 rounded">
+                    <a href="/whoWeAre" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6 text-left">
+                      Who We Are
+                    </a>
+                    <a href="/testimonials" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6 text-left">
+                      Our Testimonials
+                    </a>
+                    <a href="/whereinBahrain&GCC" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6">
+                      We Operate in Bahrain & GCC
+                    </a>
+                    <a href="/operateWorld" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6">
+                      We Operate Worldwide
+                    </a>
+                    <a href="/missionvisionandvalues" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6">
+                      Mission, Vision, and Values
+                    </a>
+                  </div>
         )}
         {item === 'Freights' && (
           <div className="absolute hidden group-hover:flex flex-col z-10 bg-white text-black  shadow-lg p-2  lg:w-[150px] -ml-2 rounded">
@@ -163,7 +208,7 @@ const Navbar = () => {
       href="mailto:sales@gvscargo.com"
       className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6 text-left"
     >
-      Seller Care
+      Sales Team
     </a>
     <a
       href="mailto:info@gvscargo.com"
@@ -270,15 +315,15 @@ const Navbar = () => {
             <div className="flex flex-col bg-gray-700 text-left items-start text-xs text-white rounded mt-2">
               <a href="/whoWeAre" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">Who We Are</a>
               <a href="/testimonials" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">Our Testimonials</a>
-              <a href="/whereinUAE" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">Where We Operate in UAE</a>
-              <a href="/operateWorld" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">Where We Operate in the World</a>
+              <a href="/whereinUAE" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">We Operate in UAE</a>
+              <a href="/operateWorld" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">We Operate WorldWide</a>
               <a href="/missionvisionandvalues" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">Mission, Vision, and Values</a>
             </div>
           )}
            {item === 'Email' && openDropdown === index && (
             <div className="flex flex-col bg-gray-700 text-left items-start text-xs  text-white rounded mt-2">
               <a  href="mailto:customercare@gvscargo.com" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">Customer Care</a>
-              <a href="mailto:sales@gvscargo.com" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">Seller Care</a>
+              <a href="mailto:sales@gvscargo.com" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">Sales Team</a>
               <a  href="mailto:info@gvscargo.com" className="w-full py-3 px-4 hover:bg-yellow-500 font-thin">Business Enquiries</a>
             </div>
 

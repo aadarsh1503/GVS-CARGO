@@ -1,6 +1,5 @@
 import { Container } from "postcss";
 import AirFreightSection from "./components/AirFreightSection/AirFreightSection";
-import ColorBar from "./components/Colorbar/Colorbar";
 import Commercial from "./components/Commercial/Commercial";
 import CustomClearance from "./components/CustomClearance/CustomClearance";
 import DGR from "./components/DGR/DGR";
@@ -28,10 +27,12 @@ import ContactUs from "./components/ContactUs/ContactUs";
 import ChatWidget from "./components/ChatWidget/ChatWidget";
 import Slide from "./components/Slide/Slide";
 import Testimonials from "./components/Testimonials/Testimonials";
+import GlobalLoader from "./components/GlobalLoader/GlobalLoader";
 
 function App() {
   return (
     <Router>
+    <GlobalLoader />
       <Navbar />
       <ChatWidget />
       <Routes>
