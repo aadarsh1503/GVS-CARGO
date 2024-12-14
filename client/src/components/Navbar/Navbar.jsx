@@ -25,7 +25,7 @@ const Navbar = () => {
       setSelectedItem('About Us');
     } else if (path.includes('testimonials')) {
       setSelectedItem('About Us');
-    } else if (path.includes('whereinBahrain&GCC')) {
+    } else if (path.includes('whereinUAE')) {
       setSelectedItem('About Us');
     } else if (path.includes('operateWorld')) {
       setSelectedItem('About Us');
@@ -157,8 +157,8 @@ const Navbar = () => {
                     <a href="/testimonials" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6 text-left">
                       Our Testimonials
                     </a>
-                    <a href="/whereinBahrain&GCC" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6">
-                      We Operate in Bahrain & GCC
+                    <a href="/whereinUAE" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6">
+                      We Operate in UAE
                     </a>
                     <a href="/operateWorld" className="py-3 hover:bg-YellowDark p-2 font-thin text-sm font-poppins px-6">
                       We Operate Worldwide
