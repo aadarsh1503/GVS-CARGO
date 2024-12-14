@@ -23,7 +23,7 @@ function CollapsibleSection({ title, description }) {
         <div className="font-bold text-start items-center font-roboto justify-center text-lg">{title}</div>
       </div>
       <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-screen' : '-h-10'}`}
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'sm-min-h-screen lg:max-h-screen' : '-h-10'}`}
       >
         {isOpen && (
           <div className="text-start lg:mt-4 lg:ml-56 border-yellow-400">
