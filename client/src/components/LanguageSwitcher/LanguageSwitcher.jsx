@@ -59,32 +59,41 @@ const LanguageSwitcher = () => {
     }, []);
 
     return (
-        <div>
-            {loading && (
-                <div className="loading-overlay">
-                    <div className="loading-spinner"></div>
-                </div>
-            )}
-            <div className="flex items-center justify-between">
-                <div className="font-bold text-lg"></div>
-                <div id="google_translate_element" className="hidden"></div>
-                <div className="language-switcher flex gap-2">
-                <img
+<div>
+    {loading && (
+        <div className="loading-overlay fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+            <div className="loading-spinner border-4 border-t-4 border-gray-200 rounded-full w-16 h-16 animate-spin"></div>
+        </div>
+    )}
+    <div className="flex items-center justify-between p-  rounded-lg shadow-lg">
+        <div className="font-bold text-xl text-white"></div>
+        <div id="google_translate_element" className="hidden"></div>
+        <div className="language-switcher flex gap-4 items-center">
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center space-x-2">
+                    <img
                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAACfCAMAAABX0UX9AAAAgVBMVEUAAAAAnkn////OESfRFisICAgFoUzp6en//f/8//8AoEjj+ePNEicAkkTPESXSAChuXjjIABTdnqF4ECEAoEQAkUnj+OjVBywApk7PDiJwXjYAnkV1VjgAj0fJEybOABHTnZXZ/erP5tPYnaLz///n5ObKABrUkpbr7urZ2dkABwAzOBq1AAACFUlEQVR4nO3bWVICQRAAUaTZxQGEAcYNFff7H1AHPYBEVsBH5TvARHRGdUz9dKcXqMw28+0gk05vWkqpyjRENZtPBhd5/OULYj6cb5stX1y/ynzmO4L5EPMh5kPMh5gPic3n3oc4feY7hvkQ8yHmQ8yHmA9x70OcPsR8iPkQ8yHmQ8yHmA9x70OcPsR8iPkQ8yHmQ8yHuLggTh9iPsR8iPkQ8yHmQ8yHuPchTh9iPsR8iPkQ8yHmQ8yHxO99k3Mf6WQm0flmTXMzuF1NErhdHYTmK01zV9dXKdR1fV/Xofkeqt3j03p9mcD64Dk2X7O77o5G4zSGsb+OZrEfv/wETKDbeg2evsW+O/79cgrB01ct2st77kOdTmy+0ubLxHyI+RDzIeZDzIeYDzEfYj7EfIj5EPMh5kPMh5gPic3n3oc4feY7hvkQ8yHmQ8yHmA9x70OcPsR8iPkQ8yHmQ8yHmA9x70OcPsR8iPkQ8yHmQ8yHuLggTh9iPsR8iPkQ8yHmQ8yHuPchTh9iPsR8iPkQ8yHmQ8yHxO99k3Mf6WQm0flmTXMzuF1NErhdHYTmK01zV9dXKdR1fV/Xofkeqt3j03p9mcD64Dk2X7O77o5G4zSGsb+OZrEfv/wETKDbeg2evsW+O/79cgrB01ct2st77kOdTmy+0ubLxHyI+RDzIeZDzIeYDzEfYj7EfIj5EPMh5kPMh5gPic3n3oc4feY7hvkQ8yHmQ8yHmA9x70OcPsR8iPkQ8yHmQ8yHmA9x70OcPsR8iPkQ8yHmQ8yHuLggTh9iPsR8iPkQ8yHmQ8yHuPchTh9iPsR8iPkQ8yHmQ8yHxO99k3Mf6WQm0flmTXMzuF1NErhdHYTmK01zV9dXKdR1fV/Xofkeqt3j03p9mcD64Dk2X7O77o5G4zSGsb+OZrEfv/wETKDbeg2evsW+O/79cgrB01ct2st77kOdTmy+0ubLxHyI+RDzIeZDzIeYDzEfYj7EfIj5EPMh5kPMh5gPMR9iPsR8iPkQ8yHmQ8yHmA8xH2I+xHyI+RDzIeZDzIeYDzEfYj7EfIj5EPMh5kPMh5gPMR9iPsR8iPkQ8yHmQ8yHmA+Jfs/79v4xTOQzePp6y04u5gP6wZd3Yz7z/Zv5EPMh5kPMh5gPMR9iPsR8iPkQ8yHmQ8yHmA8xH2I+xHyI+RDzIeZDYvP5otJ8x2jzxdVLeXnj8pWk+aoyjZDx8kYqm+VXP5NvxwWX/oPQ8mYAAAAASUVORK5CYII="
                         alt="Switch to Arabic"
                         onClick={() => changeLanguage('ar')}
-                        className="cursor-pointer w-12  h-auto "
+                        className="cursor-pointer w-7 h-7 rounded-full transition-transform duration-300 hover:scale-110"
                     />
+                    <span class="text-sm text-white font-semibold">Ar</span>
+                </div>
+
+                <div class="flex items-center space-x-2">
                     <img
                         src="https://cdn.britannica.com/79/4479-050-6EF87027/flag-Stars-and-Stripes-May-1-1795.jpg"
                         alt="Switch to English"
                         onClick={() => changeLanguage('en')}
-                        className="cursor-pointer w-12 h-auto "
+                        className="cursor-pointer w-7 h-7 rounded-full transition-transform duration-300 hover:scale-110"
                     />
-                   
+                    <span class="text-sm text-white font-semibold">En</span>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
     );
 };
 

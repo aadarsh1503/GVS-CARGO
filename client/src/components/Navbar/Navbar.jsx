@@ -73,7 +73,7 @@ const Navbar = () => {
     <header className="bg-DarkBlue">
       {/* Top Bar */}
       <div className="flex justify-between max-w-4xl mx-auto font-roboto items-center px-4 py-1 text-white text-sm">
-  <span>Welcome to GVS Cargo & Logistics</span>
+  <span>Welcome to GVS Cargo & Transport</span>
   <div className='mt-1'>
 <LanguageSwitcher />
 </div>
